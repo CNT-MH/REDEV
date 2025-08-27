@@ -1071,7 +1071,7 @@ function showSuccessModal(redirectUrl, seconds = 5) {
   // 프런트 유효성
  
       if (!name || !dongho || !message) {
-        statusEl.textContent = "성명/소유동호수/메시지를 입력하세요.";
+        statusEl.textContent = "성명/소유지번/메시지를 입력하세요.";
         return;
       }
 	  
@@ -1095,7 +1095,7 @@ function showSuccessModal(redirectUrl, seconds = 5) {
       headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
       body: payload
     });
-    statusEl.textContent = "접수되었습니다. 담당자가 확인 후 연락드리겠습니다.";
+    statusEl.textContent = "접수되었습니다. 확인 후 연락드리겠습니다.";
     form.reset();
   } catch (err) {
     console.error(err);
@@ -1315,7 +1315,7 @@ function showSuccessModal(redirectUrl, seconds = 5) {
 
 		if (now > hideUntil && today >= start && today <= end) {
 			// popup.html을 fetch로 불러오기
-			fetch('https://cnt-mh.github.io/MH/DEV/APT/EXPO/popup.html')
+			fetch('https://cnt-mh.github.io/REDEV/SITE2/SD/300/popup.html')
 			.then(res => res.text())
 			.then(html => {document.getElementById("popup-container").innerHTML = html;
 				// 팝업 바인딩
