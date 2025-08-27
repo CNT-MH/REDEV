@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>팝업창</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .popup-wrap {
+      background-color: rgba(0, 0, 0, 0.4);
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: none;
+      padding: 15px;
+      z-index: 9999;
+    }
+
+    .popup {
+      width: 90%;
+      max-width: 500px;
+      background-color: #002ea7;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 5px 10px 10px 1px rgba(0, 0, 0, .3);
+      color: white;
+    }
+
+    .popup-head {
+      padding: 16px;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .popup-body {
+	    
+    font-weight: bold;
+      background-color: white;
+      color: #000;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .popup-body h1 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      color: #264db5;
+    }
+
+    .popup-body p {
+      margin: 6px 0;
+    }
+
+    .popup-foot {
+      display: flex;
+      border-top: 0.1px  solid #ccc;
+      height: 50px;
+    }
+
+    .pop-btn {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-weight: bold;
+      background: #002ea7;
+      color: white;
+    }
+.pop-btn:active {
+  transform: scale(0.97);
+  opacity: 0.8;
+}
+    .pop-btn + .pop-btn {
+     // border-left: 0.1px  solid #fff;
+    }
+
+    @media (max-width: 576px) {
+      .popup {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- 오버레이 + 팝업 -->
+<div class="popup-wrap" id="popup-wrap">
+  <div class="popup">
+    <div class="popup-head" style="
+    padding-right: 5px;
+    padding-left: 5px;
+">📢 사당300 모아타운 📢</div>
+    <div class="popup-body">
+      <h1>안내드립니다</h1>
+      <p>9월 1일(월) 오후 7시</p>
+      <p>주민간담회 개최</p>
+      <p>장소: 해송한의원 2층</p>
+      <p>문의처: 02-586-7774</p>
+    </div>
+    <div class="popup-foot">
+     <div class="pop-btn" id="popup-close-today">확인</div>
+	    <!-- <div class="pop-btn" id="popup-confirm">확인</div>
+      <div class="pop-btn" id="popup-close-today">닫기</div>-->
+    </div>
+  </div>
+</div>
+
+<!-- 스크립트 -->
+<script>
+   function getTodayDateStr() {
+    const today = new Date();
+    return today.toISOString().split('T')[0];
+  }
+
+  function showPopup() {
+    document.getElementById("popup-wrap").style.display = "flex";
+  }
+
+  function hidePopup() {
+    document.getElementById("popup-wrap").style.display = "none";
+  }
+
+ function closeToday() {
+    localStorage.setItem("doNotShowPopup", getTodayDateStr());
+    hidePopup();
+  }
+
+  window.onload = function () {
+    const today = getTodayDateStr();
+    // 팝업제어
+	const skip = localStorage.removeItem("doNotShowPopup");
+
+    const showStart = "2025-08-25";
+    const showEnd = "2025-09-01";
+
+    if (today !== skip && today >= showStart && today <= showEnd) {
+      showPopup();
+    }
+  };
+localStorage.setItem("popupHideUntil", Date.now() + 24 * 60 * 60 * 1000);
+
+  document.getElementById("popup-confirm").addEventListener("click", hidePopup);
+  document.getElementById("popup-close-today").addEventListener("click", closeToday);
+
+
+/*      오늘하루열지않기 수정할 코드 
+  // 날짜 문자열 반환 (YYYY-MM-DD)
+  function getTodayDateStr() {
+    const today = new Date();
+    return today.toISOString().split('T')[0];
+  }
+
+  // 팝업 표시
+  function showPopup() {
+    const popup = document.getElementById("popup-wrap");
+    if (popup) popup.style.display = "flex";
+  }
+
+  // 팝업 숨김
+  function hidePopup() {
+    const popup = document.getElementById("popup-wrap");
+    if (popup) popup.style.display = "none";
+  }
+
+  // 오늘 하루 보지 않기
+  function closeToday() {
+    const now = Date.now();
+    const oneDayLater = now + 24 * 60 * 60 * 1000;
+    localStorage.setItem("popupHideUntil", oneDayLater.toString());
+    hidePopup();
+  }
+
+  // 페이지 로드 시 실행
+  window.addEventListener("DOMContentLoaded", function () {
+    const now = Date.now();
+    const hideUntil = parseInt(localStorage.getItem("popupHideUntil") || "0", 10);
+
+    const showStart = new Date("2025-07-31");
+    const showEnd = new Date("2025-08-04");
+    const today = new Date();
+
+    if (now > hideUntil && today >= showStart && today <= showEnd) {
+      showPopup();
+    }
+
+    // 이벤트 바인딩
+    document.getElementById("popup-confirm")?.addEventListener("click", hidePopup);
+    document.getElementById("popup-close-today")?.addEventListener("click", closeToday);
+  });*/
+</script>
+
+	
+
+</body>
+</html>
