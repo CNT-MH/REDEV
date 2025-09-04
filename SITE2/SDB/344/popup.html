@@ -146,7 +146,7 @@
       showPopup();
     }
   };
-localStorage.setItem("popupHideUntil", Date.now() + 24 * 60 * 60 * 1000);
+/*localStorage.setItem("popupHideUntil", Date.now() + 24 * 60 * 60 * 1000);*/localStorage.clear()
 
   document.getElementById("popup-confirm").addEventListener("click", hidePopup);
   document.getElementById("popup-close-today").addEventListener("click", closeToday);
