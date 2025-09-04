@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -140,13 +139,13 @@
 	const skip = localStorage.removeItem("doNotShowPopup");
 
     const showStart = "2025-09-01";
-    const showEnd = "2025-09-10";
+    const showEnd = "2025-09-08";
 
     if (today !== skip && today >= showStart && today <= showEnd) {
       showPopup();
     }
   };
-/*localStorage.setItem("popupHideUntil", Date.now() + 24 * 60 * 60 * 1000);*/localStorage.clear()
+localStorage.setItem("popupHideUntil", Date.now() + 24 * 60 * 60 * 1000);
 
   document.getElementById("popup-confirm").addEventListener("click", hidePopup);
   document.getElementById("popup-close-today").addEventListener("click", closeToday);
