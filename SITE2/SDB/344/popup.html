@@ -145,13 +145,14 @@
       showPopup();
     }
   };
-localStorage.setItem("popupHideUntil", Date.now() + 24 * 60 * 60 * 1000);
+
 
   document.getElementById("popup-confirm").addEventListener("click", hidePopup);
   document.getElementById("popup-close-today").addEventListener("click", closeToday);
 
 
 /*      오늘하루열지않기 수정할 코드 
+localStorage.setItem("popupHideUntil", Date.now() + 24 * 60 * 60 * 1000);
   // 날짜 문자열 반환 (YYYY-MM-DD)
   function getTodayDateStr() {
     const today = new Date();
