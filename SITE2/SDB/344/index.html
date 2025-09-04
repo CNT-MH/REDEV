@@ -1289,8 +1289,8 @@ function showSuccessModal(redirectUrl, seconds = 5) {
 	window.addEventListener('DOMContentLoaded', function () {
 
 		const now = Date.now();
-		const hideUntil = parseInt(localStorage.removeItem("popupHideUntil") || "0", 10);
-
+	const hideUntil = parseInt(localStorage.removeItem("popupHideUntil") || "0", 10);
+	/*	const hideUntil = parseInt(localStorage.clear()); */
 		// 날짜 범위 설정
 		const today = new Date();
 		const start = new Date("2025-09-01");
