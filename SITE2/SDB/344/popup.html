@@ -115,87 +115,33 @@
 
 <!-- 스크립트 -->
 <script>
-   function getTodayDateStr() {
-    const today = new Date();
-    return today.toISOString().split('T')[0];
-  }
+  function showPopup(){ document.getElementById("popup-wrap").style.display = "flex"; }
+  function hidePopup(){ document.getElementById("popup-wrap").style.display = "none"; }
 
-  function showPopup() {
-    document.getElementById("popup-wrap").style.display = "flex";
-  }
-
-  function hidePopup() {
-    document.getElementById("popup-wrap").style.display = "none";
-  }
-
- function closeToday() {
-    localStorage.setItem("doNotShowPopup", getTodayDateStr());
+  // 24시간 숨김
+  function closeToday(){
+    const until = Date.now() + 24*60*60*1000; // 24h
+    localStorage.setItem("popupHideUntil", String(until));
     hidePopup();
   }
 
-  window.onload = function () {
-    const today = getTodayDateStr();
-    // 팝업제어
-	const skip = localStorage.removeItem("doNotShowPopup");
-
-    const showStart = "2025-09-01";
-    const showEnd = "2025-09-08";
-
-    if (today !== skip && today >= showStart && today <= showEnd) {
-      showPopup();
-    }
-  };
-
-
-  document.getElementById("popup-confirm").addEventListener("click", hidePopup);
-  document.getElementById("popup-close-today").addEventListener("click", closeToday);
-
-
-/*      오늘하루열지않기 수정할 코드 
-localStorage.setItem("popupHideUntil", Date.now() + 24 * 60 * 60 * 1000);
-  // 날짜 문자열 반환 (YYYY-MM-DD)
-  function getTodayDateStr() {
-    const today = new Date();
-    return today.toISOString().split('T')[0];
-  }
-
-  // 팝업 표시
-  function showPopup() {
-    const popup = document.getElementById("popup-wrap");
-    if (popup) popup.style.display = "flex";
-  }
-
-  // 팝업 숨김
-  function hidePopup() {
-    const popup = document.getElementById("popup-wrap");
-    if (popup) popup.style.display = "none";
-  }
-
-  // 오늘 하루 보지 않기
-  function closeToday() {
-    const now = Date.now();
-    const oneDayLater = now + 24 * 60 * 60 * 1000;
-    localStorage.setItem("popupHideUntil", oneDayLater.toString());
-    hidePopup();
-  }
-
-  // 페이지 로드 시 실행
-  window.addEventListener("DOMContentLoaded", function () {
-    const now = Date.now();
+  window.addEventListener("DOMContentLoaded", function(){
+    const nowMs = Date.now();
     const hideUntil = parseInt(localStorage.getItem("popupHideUntil") || "0", 10);
 
-    const showStart = new Date("2025-07-31");
-    const showEnd = new Date("2025-08-04");
-    const today = new Date();
+    // 노출 기간
+    const start = new Date("2025-09-01T00:00:00");
+    const end   = new Date("2025-09-08T23:59:59");
+    const now   = new Date();
 
-    if (now > hideUntil && today >= showStart && today <= showEnd) {
+    if (nowMs > hideUntil && now >= start && now <= end) {
       showPopup();
     }
 
-    // 이벤트 바인딩
-    document.getElementById("popup-confirm")?.addEventListener("click", hidePopup);
+    // 안전한 이벤트 바인딩
     document.getElementById("popup-close-today")?.addEventListener("click", closeToday);
-  });*/
+    document.getElementById("popup-confirm")?.addEventListener("click", hidePopup);
+  });
 </script>
 
 	
