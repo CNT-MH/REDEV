@@ -130,8 +130,8 @@
     const hideUntil = parseInt(localStorage.getItem("popupHideUntil") || "0", 10);
 
     // 노출 기간
-    const start = new Date("2025-09-01T00:00:00");
-    const end   = new Date("2025-09-08T23:59:59");
+    const start = new Date("2025-09-17T00:00:00");
+    const end   = new Date("2025-09-22T23:59:59");
     const now   = new Date();
 
     if (nowMs > hideUntil && now >= start && now <= end) {
