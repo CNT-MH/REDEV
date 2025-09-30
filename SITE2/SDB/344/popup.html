@@ -28,7 +28,7 @@
     .popup {
       width: 90%;
       max-width: 500px;
-      background-color: #002ea7;
+      background-color: #fe7700;
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 5px 10px 10px 1px rgba(0, 0, 0, .3);
@@ -74,7 +74,7 @@
       align-items: center;
       cursor: pointer;
       font-weight: bold;
-      background: #002ea7;
+      background: #fe7700;
       color: white;
     }
 .pop-btn:active {
@@ -97,14 +97,14 @@
 <!-- 오버레이 + 팝업 -->
 <div class="popup-wrap" id="popup-wrap">
   <div class="popup">
-    <div class="popup-head" style="
+    <!--<div class="popup-head" style="
     padding-right: 5px;
     padding-left: 5px;
-">🎉 신대방 3구역 🎉</div>
-    <div class="popup-body">
-      <h1>신속통합기획</h1>
-      <p> 후보지 선정 </p>
-    </div>
+">  </div>-->
+    <div class="popup-body" style="padding-bottom: 0px;padding-top: 0px;">
+       <img src="https://raw.githubusercontent.com/CNT-MH/REDEV/main/SITE2/SDB/344/추석용POP.png" alt="추석이미지" style="max-width:100%; height:auto; margin:10px 0;">
+     
+	</div>
     <div class="popup-foot">
      <div class="pop-btn" id="popup-close-today">확인</div>
 	    <!-- <div class="pop-btn" id="popup-confirm">확인</div>
@@ -115,36 +115,45 @@
 
 <!-- 스크립트 -->
 <script>
-  function showPopup(){ document.getElementById("popup-wrap").style.display = "flex"; }
-  function hidePopup(){ document.getElementById("popup-wrap").style.display = "none"; }
+   function getTodayDateStr() {
+    const today = new Date();
+    return today.toISOString().split('T')[0];
+  }
 
-  // 24시간 숨김
-  function closeToday(){
-    const until = Date.now() + 24*60*60*1000; // 24h
-    localStorage.setItem("popupHideUntil", String(until));
+  function showPopup() {
+    document.getElementById("popup-wrap").style.display = "flex";
+  }
+
+  function hidePopup() {
+    document.getElementById("popup-wrap").style.display = "none";
+  }
+
+ function closeToday() {
+    localStorage.setItem("doNotShowPopup", getTodayDateStr());
     hidePopup();
   }
 
-  window.addEventListener("DOMContentLoaded", function(){
-    const nowMs = Date.now();
-    const hideUntil = parseInt(localStorage.getItem("popupHideUntil") || "0", 10);
+  window.onload = function () {
+    const today = getTodayDateStr();
+    // 팝업제어
+	const skip = localStorage.removeItem("doNotShowPopup");
 
-    // 노출 기간
-    const start = new Date("2025-09-17T00:00:00");
-    const end   = new Date("2025-09-22T23:59:59");
-    const now   = new Date();
+    const showStart = "2025-09-30";
+    const showEnd = "2025-10-09";
 
-    if (nowMs > hideUntil && now >= start && now <= end) {
+    if (today !== skip && today >= showStart && today <= showEnd) {
       showPopup();
     }
+  };
+localStorage.setItem("popupHideUntil", Date.now() + 24 * 60 * 60 * 1000);
 
-    // 안전한 이벤트 바인딩
-    document.getElementById("popup-close-today")?.addEventListener("click", closeToday);
-    document.getElementById("popup-confirm")?.addEventListener("click", hidePopup);
-  });
+  document.getElementById("popup-confirm").addEventListener("click", hidePopup);
+  document.getElementById("popup-close-today").addEventListener("click", closeToday);
+
+
 </script>
 
 	
 
 </body>
-</html>
+</html> 
