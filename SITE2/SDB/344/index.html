@@ -1262,56 +1262,45 @@ function showSuccessModal(redirectUrl, seconds = 5) {
 </footer>
 
 <!--######################################################-->
-<!--팝업컨테이너-->
-<div id="popup-container">
-</div>
+
+<!-- 팝업 내용을 불러올 컨테이너 (popup.html 파일이 여기에 삽입됨) -->
+<div id="popup-container"></div>
+
 <script>
-        function getTodayDateStr() {
-                const today = new Date();
-                return today.toISOString().split('T')[0];
-        }
 
-        function showPopup() {
-                const wrap = document.getElementById("popup-wrap");
-                if (wrap) wrap.style.display = "flex";
-        }
+// ********================= 팝업 열기 함수 =================
+ function showPopup() {
+        //****** popup.html 안에는 <div id="popup-wrap"> 가 있다고 가정
+    const wrap = document.getElementById("popup-wrap");
+    if (wrap) wrap.style.display = "flex";  
+         //***** display:flex → 화면 중앙 정렬된 팝업이 보이도록 설정
+}
 
-        function hidePopup() {
-                const wrap = document.getElementById("popup-wrap");
-                if (wrap) wrap.style.display = "none";
-        }
+// *****================= 팝업 닫기 함수 =================
+function hidePopup() {
+    const wrap = document.getElementById("popup-wrap");
+    if (wrap) wrap.style.display = "none";  
+    //***** display:none → 팝업 숨김
+}
 
-        function closeToday() {
-                const now = Date.now();
-                localStorage.removeItem("popupHideUntil", now + 24 * 60 * 60 * 1000);
-                hidePopup();
-        }
+// ================= 페이지 로드 시 실행 =================
+window.addEventListener('DOMContentLoaded', function () {
+    // popup.html 파일을 fetch 로 불러옴
+    fetch('https://cnt-mh.github.io/REDEV/SITE2/SDB/344/popup.html')
+        .then(res => res.text())   // 응답을 HTML 텍스트로 변환
+        .then(html => {
+            // 불러온 popup.html 내용을 #popup-container 안에 삽입
+            document.getElementById("popup-container").innerHTML = html;
 
-        window.addEventListener('DOMContentLoaded', function () {
+            // 팝업 열기
+            showPopup();
 
-                const now = Date.now();
-                const hideUntil = parseInt(localStorage.removeItem("popupHideUntil") || "0", 10);
-
-                // 날짜 범위 설정
-                const today = new Date();
-                const start = new Date("2025-09-30");
-                const end = new Date("2025-10-09");
-
-                if (now > hideUntil && today >= start && today <= end) {
-                        // popup.html을 fetch로 불러오기
-                        fetch('https://cnt-mh.github.io/REDEV/SITE2/SDB/344/popup.html')
-                        .then(res => res.text())
-                        .then(html => {document.getElementById("popup-container").innerHTML = html;
-                                // 팝업 바인딩
-                                showPopup();
-                                document.getElementById("popup-confirm")?.addEventListener("click", hidePopup);
-                                document.getElementById("popup-close-today")?.addEventListener("click", closeToday);
-                                }
-                        )
-                        .catch(err => console.error("팝업 불러오기 실패:", err));
-                }
-        }
-        );
+            // popup.html 안에 확인 버튼이 있다고 가정 (id="popup-confirm")
+            // 확인 버튼을 누르면 팝업 닫기 실행
+            document.getElementById("popup-confirm")?.addEventListener("click", hidePopup);
+        })
+        .catch(err => console.error("팝업 불러오기 실패:", err));
+});
 </script>
 
 
