@@ -1298,7 +1298,7 @@ function showSuccessModal(redirectUrl, seconds = 5) {
 
                 if (now > hideUntil && today >= start && today <= end) {
                         // popup.html을 fetch로 불러오기
-                        fetch('https://cnt-mh.github.io/REDEV//SITE2/SDB/344/popup.html')
+                        fetch('https://cnt-mh.github.io/REDEV/SITE2/SDB/344/popup.html')
                         .then(res => res.text())
                         .then(html => {document.getElementById("popup-container").innerHTML = html;
                                 // 팝업 바인딩
