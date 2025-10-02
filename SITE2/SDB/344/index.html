@@ -535,8 +535,16 @@
                         <span class="badge-new">NEW</span>
                 </a>
         </div>
--->
-
+--><!--
+  <div class="board-card" style="margin-top: 1.25rem;">
+              <span class="badge-new">영상</span> 
+			    <a href="https://www.dongjak.go.kr/static/synap_skin/doc.html?key=FILE_000000040078069_1&imageConverting=true&contextPath=/synapImage/FILE_000000040078069_1" target="_blank" class="board-link">
+                       <!-- <div class="board-icon">1</div>-->
+                      <!--   2025-추석인사 바로 보기
+                </a> 
+        </div>-->
+		
+		
   <!-- 게시물 - 카드형 게시판 항목 -->
         <div class="board-card" style="margin-top: 1.25rem;">
               <span class="badge-new">보도자료</span> 
@@ -681,11 +689,25 @@
 
   <!-- Swiper 컨테이너: 가운데 메인, 양옆 슬쩍 보이는 레이아웃 -->
   <div class="swiper" id="iconCardSwiper">
+  
     <div class="swiper-wrapper">
 
+  <!-- ✅ 첫 번째 슬라이드: 추석 인사 -->
+  <div class="swiper-slide">
+    <a class="icon-card" 
+       href="https://youtu.be/FO5tJQ3YqXg?si=fpmnyA7WRLe6ogGx"  
+       target="_blank" 
+       aria-label="2025 추석 인사 영상">
+      <img class="icon-card__img" 
+           src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/YouTube_full-color_icon_%282024%29.svg/240px-YouTube_full-color_icon_%282024%29.svg.png" 
+           alt="YouTube 아이콘" />
+      <div class="icon-card__label">2025 추석 인사</div>
+    </a>
+  </div>
 
-      <!--  설명회영상바로가기-->
+  <!-- 두 번째 슬라이드: 설명회 영상 -->
 
+	  
      <div class="swiper-slide">
   <a class="icon-card" 
      href="https://youtu.be/FO5tJQ3YqXg?si=fpmnyA7WRLe6ogGx"  
@@ -695,44 +717,10 @@
          src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/YouTube_full-color_icon_%282024%29.svg/240px-YouTube_full-color_icon_%282024%29.svg.png" 
          alt="유튜브 아이콘" />
     <div class="icon-card__label">설명회영상바로가기</div>
-  </a>
+  </a></div>
+
 </div>
 
-      <!-- 1) 홈페이지 -->
-     <!-- <div class="swiper-slide">
-        <a class="icon-card" href="https://www.dongjak.go.kr/portal/main/main.do" target="_blank" aria-label="홈페이지 바로가기">
-          <img class="icon-card__img" src="https://www.dongjak.go.kr/static/portal/img/main/2023/logo_n23.png" STYLE="
-    object-fit: contain;" alt="홈페이지 아이콘" />
-          <div class="icon-card__label">동작구청 바로가기</div>
-        </a>
-      </div>-->
-
-      <!-- 2) 네이버 카페 -->
-      <!--<div class="swiper-slide">
-      
-        <a class="icon-card" href="https://m.cafe.naver.com/" target="_blank" aria-label="네이버 카페 바로가기">
-          <img class="icon-card__img" src="https://i.imgur.com/5Qgv4zj.jpeg" alt="네이버 카페 아이콘" />
-          <div class="icon-card__label">네이버 카페 바로가기</div>
-        </a>
-      </div>-->
-
-
-      <!-- 4) 2024연말영상편지 -->
-
-        <!--<div class="swiper-slide">
-  <a class="icon-card" 
-     href="https://youtu.be/VsagY8WrkkA?list=PLqrOhy8cJakGq4LQ3LCMUuBs5tx7d4oNA" 
-     target="_blank" 
-     aria-label="유튜브 영상 바로가기">
-    <img class="icon-card__img" 
-         src="https://cdn-icons-png.flaticon.com/512/72/72420.png" 
-         alt="편지아이콘" />
-    <div class="icon-card__label">2024연말영상편지</div>
-  </a>
-</div> -->
-      <!-- 필요 시 더 추가 가능 -->
-
-    </div>
 
     <!-- 네비게이션 & 페이지네이션 -->
     <div class="swiper-button-prev" aria-label="이전"></div>
@@ -744,30 +732,23 @@
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-  const swiper = new Swiper('#iconCardSwiper', {
-    /* 가운데 정렬 + 좌우 미리보기 */
-    centeredSlides: true,
-    slidesPerView: 'auto', // .swiper-slide의 width로 제어
-    spaceBetween: 16 ,
-    loop: true,
-    initialSlide: 0, 
-
-    /* UX 향상 */
-    grabCursor: true,
-    keyboard: { enabled: true },
-    watchSlidesProgress: true,
-
-    /* 내비게이션 / 페이지네이션 */
-    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-    pagination: { el: '.swiper-pagination', clickable: true },
-
-    /* 반응형 간격 조정 */
-    breakpoints: {
-      0:   { spaceBetween: 12 },
-      576: { spaceBetween: 14 },
-      992: { spaceBetween: 16 }
-    }
-  });
+ const swiper = new Swiper('#iconCardSwiper', {
+  centeredSlides: true,
+  slidesPerView: 'auto',
+  spaceBetween: 16,
+  loop: false,
+  initialSlide: 0,
+  navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+  pagination: { el: '.swiper-pagination', clickable: true },
+  grabCursor: true,
+  keyboard: { enabled: true },
+  watchSlidesProgress: true,
+  breakpoints: {
+    0:   { spaceBetween: 12 },
+    576: { spaceBetween: 14 },
+    992: { spaceBetween: 16 }
+  }
+});
 </script>
 
 <!-- Bootstrap JS (선택) -->
@@ -1270,32 +1251,33 @@ function showSuccessModal(redirectUrl, seconds = 5) {
 <!-- 약도 끝 -->
 
     <!-- 1행: 문의처 -->
-                <div class="mb-1 ">
+                <div class="mb-1 " STYLE=" text-align: left;">
                         <strong>문의처</strong>
-                        <a href="https://cnt-mh.github.io/REDEV//SITE2/SDB/344/index.html" style="color: #666; text-decoration: none;">
-                        |&nbsp;신대방3구역 신속통합기획 재개발</a>
-                        <br class="d-md-none">·&nbsp;추진준비사무실(석정빌딩)
-                </div>
-
-        <!-- 2행: 연락처 -->
-                <div class="mb-1">
-                        <strong>TEL</strong>  
-                        <a href="tel:0428671003" style="color: #666; text-decoration: none;">
-                        |&nbsp;02-3280-1320</a>
-                        <br class="d-md-none">
-                          <strong>&nbsp;SMS</strong>
-                        <a href="sms:01085418265" style="color: #666; text-decoration: none;">
-                        |&nbsp;010-8541-8265</a>
-						<br class="d-md-none">&nbsp;
-						<a href="sms:01092729090" style="color: #666; text-decoration: none;">
+                        <a href="https://cnt-mh.github.io/REDEV//SITE2/SDB/344/index.html" style="color: #666;  text-align: left;">
+                        <span style="margin-left:13px;">|신대방3구역 신속통합기획 재개발</span><br>     
+                        <span style="margin-left:60px;">·&nbsp;추진준비사무실(석정빌딩)  </span></a>
+						 </div>
+						 <br><br>
+	 <!-- 2행: 연락처 -->
+				<div class="mb-1 " STYLE=" text-align: left;">
+						<strong>상담센터</strong>
+						<a href="tel:0428671003" style="color: #666;    text-align: left;">
+                        |<span style="margin-left:4px;">02-3280-1320</span><br> 
+						<span style="margin-left:58px;">
+						<a href="sms:01085418265" style="color: #666;  text-align: left">
+                        |&nbsp;010-8541-8265</a><br> 
+						<span style="margin-left:58px;">
+						<a href="sms:01092729090" style="color: #666; text-align: left">
+                        |&nbsp;010-8541-8265</a><br> </div>
+       <br><br>
+   <!-- 3행: 저작권 -->
+						<div class="mb-1 " STYLE=" text-align: left;">
+                        <strong>제작</strong>
+						<span style="margin-left:27px;">
+                        |&nbsp;㈜머핀홀딩스 <br> 
 						
-                        ·&nbsp;010-9272-9090</a>
-                </div>
-
-    <!-- 3행: 제작 -->
-                <div>
-                  <strong>제작</strong>&nbsp;|&nbsp;㈜머핀홀딩스
-                </div>
+						 </div>
+                
 
         <!-- 4행: 저작권 -->
                 <div class="mt-2 text-muted" style="font-size: 0.8rem;">
