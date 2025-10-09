@@ -116,7 +116,7 @@
   </div>
 </div>
 
-<!-- 스크립트 -->
+<!-- 스크립트 
 <script>
    function getTodayDateStr() {
     const today = new Date();
@@ -198,9 +198,15 @@ localStorage.setItem("popupHideUntil", Date.now() + 24 * 60 * 60 * 1000);
     document.getElementById("popup-confirm")?.addEventListener("click", hidePopup);
     document.getElementById("popup-close-today")?.addEventListener("click", closeToday);
   });*/
-</script>
+</script>-->
 
 	
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  document.getElementById("popup-wrap").style.display = "flex";
+});
+</script>
 
 </body>
+
 </html>
