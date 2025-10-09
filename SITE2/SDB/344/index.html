@@ -1303,9 +1303,8 @@ function showSuccessModal(redirectUrl, seconds = 5) {
 
 <!--######################################################-->
 
-<!-- 팝업 내용을 불러올 컨테이너 (popup.html 파일이 여기에 삽입됨) -->
-<!-- 팝업 컨테이너 -->
-<!-- 팝업 내용을 불러올 컨테이너 (popup.html 파일이 여기에 삽입됨) -->
+
+<!-- 팝업 내용을 불러올 컨테이너 (popup.html 파일이 여기에 삽입됨) 
 <div id="popup-container"></div>
 
 <script>
@@ -1328,7 +1327,7 @@ function hidePopup() {
 // ================= 페이지 로드 시 실행 =================
 window.addEventListener('DOMContentLoaded', function () {
     // popup.html 파일을 fetch 로 불러옴
-    fetch('https://cnt-mh.github.io/REDEV/SITE2/SDB/344/popup.html')
+   https://cnt-mh.github.io/REDEV/SITE2/SD/12/pop.html
         .then(res => res.text())   // 응답을 HTML 텍스트로 변환
         .then(html => {
             // 불러온 popup.html 내용을 #popup-container 안에 삽입
@@ -1343,8 +1342,53 @@ window.addEventListener('DOMContentLoaded', function () {
         })
         .catch(err => console.error("팝업 불러오기 실패:", err));
 });
-</script>
+</script>-->
 
+
+  
+<!-- ✅ 팝업이 삽입될 컨테이너 -->
+<div id="popup-container"></div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    
+    /** ✅ 팝업 노출 기간 설정 **/
+    const startDate = new Date("2025-10-09T00:00:00"); // 노출 시작일
+    const endDate = new Date("2025-10-10T10:59:59"); // 노출 종료일
+    const today = new Date();
+    
+    // ✅ 팝업을 오늘 닫았는지 여부 (localStorage)
+    const closedToday = localStorage.getItem("popupClosedDate");
+    const todayString = today.toDateString();
+    
+    // ✅ 오늘 이미 닫은 경우 → 표시하지 않음
+    if (closedToday === todayString) return;
+    
+    // ✅ 노출 기간이 아닐 경우 → 표시하지 않음
+    if (today < startDate || today > endDate) return;
+    
+    /** ✅ popup.html 불러오기 **/
+    fetch("https://cnt-mh.github.io/REDEV/SITE2/SDB/344/popup.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("popup-container").innerHTML = html;
+        
+        const wrap = document.getElementById("popup-wrap");
+        const closeBtn = document.getElementById("popup-confirm");
+        
+        if (wrap) wrap.style.display = "flex";
+        
+        // 확인 버튼 클릭 시 닫기 + 오늘은 다시 안 보기
+        if (closeBtn) {
+          closeBtn.addEventListener("click", () => {
+            wrap.style.display = "none";
+            localStorage.setItem("popupClosedDate", todayString);
+          });
+        }
+      })
+      .catch(err => console.error("팝업 로드 실패:", err));
+  });
+</script>
 
 </body>
 
