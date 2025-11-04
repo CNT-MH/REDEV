@@ -1316,6 +1316,38 @@ function showSuccessModal(redirectUrl, seconds = 5) {
         </div>
 
 
+<style>
+.counter-wrap {display:inline-flex;align-items:center;gap:.5rem;padding:.4rem .8rem;border:1px solid #e5e7eb;border-radius:.75rem;font:14px/1.2 system-ui;}
+.counter-dot {width:8px;height:8px;border-radius:50%;background:#3b82f6;}
+.counter-label {color:#6b7280;}
+.counter-value {font-weight:700;}
+</style>
+
+<div class="counter-wrap" aria-live="polite">
+  <span class="counter-dot" aria-hidden="true"></span>
+  <span class="counter-label">VISITORS</span>
+  <span class="counter-value" id="visits">-</span>
+</div>
+
+<script>
+(async () => {
+  try {
+    //
+    const ns = 'cnt-mh.github.io';      // GitHub Pages 도메인
+    const key = 'REDEV_SITE2_SD_12';    // 페이지별 구분 키
+    const url = `https://api.countapi.xyz/hit/${encodeURIComponent(ns)}/${encodeURIComponent(key)}`;
+    
+    const res = await fetch(url, {cache: 'no-store'});
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+    const data = await res.json();
+    document.getElementById('visits').textContent = Number(data.value).toLocaleString('ko-KR');
+  } catch (e) {
+    console.error('방문자 카운트 오류:', e);
+    document.getElementById('visits').textContent = '집계 오류';
+  }
+})();
+</script>
 
 
         <div class="container">
