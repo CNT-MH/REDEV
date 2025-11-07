@@ -1054,7 +1054,7 @@ function showSuccessModal(redirectUrl, seconds = 5) {
 	const todayString = today.toISOString().split('T')[0];
 
     // ✅ 오늘 이미 닫은 경우 → 표시하지 않음
-    if (closedToday === todayString) return;
+   // if (closedToday === todayString) return;
 
     // ✅ 노출 기간이 아닐 경우 → 표시하지 않음
     if (today < startDate || today > endDate) return;
