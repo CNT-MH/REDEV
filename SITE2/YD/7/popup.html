@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>팝업창</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    .popup-wrap {
+      background-color: rgba(0,0,0,.4);
+      justify-content: center;
+      align-items: center;
+      position: fixed; inset: 0;
+      display: none;
+      padding: 15px;
+      z-index: 9999;
+    }
+    .popup {
+      width: 90%; max-width: 500px;
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 5px 10px 10px 1px rgba(0,0,0,.3);
+      color: #fff;
+    }
+    /*.popup-head {
+      background:#541d7a; padding:16px; text-align:center;
+      font-size:1.5rem; font-weight:bold;
+    }*/
+    .popup-body {
+      background:#fff; color:#000; padding:10px; text-align:center;
+      font-weight:bold;
+    }
+    .popup-foot {
+      display:flex; border-top:.1px solid #ccc; height:50px;
+    }
+    .pop-btn {
+      flex:1; display:flex; justify-content:center; align-items:center;
+      cursor:pointer; font-weight:bold; background:#ffffff8c; color:#fff;
+      transition: transform .05s ease, opacity .05s ease;
+    }
+    .pop-btn:active { transform:scale(.97); opacity:.8; }
+
+    /* === 썸네일 + 아이콘 오버레이 핵심 스타일 === */
+    .thumb-wrap {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      max-width: 100%;
+      line-height: 0; /* 이미지 하단 공백 방지 */
+    }
+    .thumb-wrap .thumb {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+    .yt-badge {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;   /* 수직 가운데 */
+      justify-content: center; /* 수평 가운데 */
+      pointer-events: none;  /* 아이콘 위 클릭도 a 링크로 전달 */
+    }
+    .yt-badge img {
+      width: 64px; height: 50px;
+      border-radius: 12px;
+      object-fit: cover;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,.35));
+    }
+    /* 아이콘을 '위-가운데'로 배치하고 싶다면 아래 클래스를 추가로 사용 */
+    .yt-badge.top {
+      align-items: flex-start;
+      padding-top: 10px; /* 위쪽 여백 조정 */
+    }
+
+    @media (max-width:576px){
+      .popup{ width:100%; }
+      .yt-badge img{ width:56px; height:40px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="popup-wrap" id="popup-wrap">
+  <div class="popup">
+   <!-- <div class="popup-head" style="padding:10px 5px;"></div>-->
+
+    <div class="popup-body" style="padding:0;">
+	<div style="color: darkgrey;padding-top: 15px;">👇설명회 영상 바로보기👇</div>
+      <!-- 아이콘 단독 <img>는 제거하고, 아래처럼 썸네일 안에 오버레이로 배치 -->
+      <a
+        href="https://www.youtube.com/watch?v=zt0u0L7eEPw&list=PLqrOhy8cJakG4efw9pB-OSVdkknstUyXR"
+        target="_blank"
+        class="board-link thumb-wrap"
+        aria-label="설명회 영상 바로보기"
+      >
+       <img
+    src="https://raw.githubusercontent.com/CNT-MH/REDEV/main/SITE2/YD/7/popup2511.png"
+    alt="설명회 썸네일"
+    class="thumb"
+    style="
+      margin:10px 0;
+      padding-top:10px;
+      padding-bottom:10px;
+      filter:  brightness(0.3) /* ✅ 뿌옇게 & 약간 어둡게 */
+      transition: all 0.3s ease;          /* ✅ hover 시 부드럽게 */
+    "
+  >
+        <span class="yt-badge"><!-- 위-가운데 원하면 class="yt-badge top" -->
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/YouTube_full-color_icon_%282024%29.svg/240px-YouTube_full-color_icon_%282024%29.svg.png"
+            alt=""
+            aria-hidden="true"
+          >
+        </span>
+      </a>
+    </div>
+
+    <div class="popup-foot">
+      <div class="pop-btn" id="popup-confirm">확인</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('popup-wrap').style.display = 'flex';
+    document.getElementById('popup-confirm')?.addEventListener('click', () => {
+      document.getElementById('popup-wrap').style.display = 'none';
+    });
+  });
+</script>
+
+</body>
+</html>
