@@ -1037,8 +1037,8 @@ function showSuccessModal(redirectUrl, seconds = 5) {
   document.addEventListener("DOMContentLoaded", () => {
 
     /** ✅ 팝업 노출 기간 설정 **/
-    const startDate = new Date("2025-10-09T00:00:00"); // 노출 시작일
-    const endDate = new Date("2025-10-10T12:59:59"); // 노출 종료일
+    const startDate = new Date("2025-11-06T00:00:00"); // 노출 시작일
+    const endDate = new Date("2025-11-13T12:59:59"); // 노출 종료일
     const today = new Date();
 
     // ✅ 팝업을 오늘 닫았는지 여부 (localStorage)
@@ -1080,55 +1080,6 @@ function showSuccessModal(redirectUrl, seconds = 5) {
 </html>
 
 
-<!--######################################################-->
-<!--팝업컨테이너
-<div id="popup-container"></div>
-
-<script>
-
-// ********================= 팝업 열기 함수 =================
- function showPopup() {
-        //****** popup.html 안에는 <div id="popup-wrap"> 가 있다고 가정
-    const wrap = document.getElementById("popup-wrap");
-    if (wrap) wrap.style.display = "flex";  
-         //***** display:flex → 화면 중앙 정렬된 팝업이 보이도록 설정
-}
-
-// *****================= 팝업 닫기 함수 =================
-function hidePopup() {
-    const wrap = document.getElementById("popup-wrap");
-    if (wrap) wrap.style.display = "none";  
-    //***** display:none → 팝업 숨김
-}
-
-// ================= 페이지 로드 시 실행 =================
-window.addEventListener('DOMContentLoaded', function () {
-    // popup.html 파일을 fetch 로 불러옴
-    fetch('https://cnt-mh.github.io/REDEV/SITE2/YD/7/popup.html')
-        .then(res => res.text())
-        .then(html => {
-            // 불러온 popup.html 내용을 #popup-container 안에 삽입
-            document.getElementById("popup-container").innerHTML = html;
-
-            // 팝업 열기
-            showPopup();
-
-            // popup.html 안에 확인 버튼이 있다고 가정 (id="popup-confirm")
-            const confirmBtn = document.getElementById("popup-confirm");
-            if (confirmBtn) {
-                confirmBtn.addEventListener("click", function () {
-                    hidePopup();
-                    const video = document.getElementById("greetingVideo"); // mp4 video 태그
-                    if (video) {
-                        video.muted = false;  // 음소거 해제
-                        video.play();         // 소리 있는 재생
-                    }
-                });
-            }
-        })
-        .catch(err => console.error("팝업 불러오기 실패:", err));
-});
-</script>-->
 
 
    <!--
