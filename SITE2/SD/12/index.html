@@ -1,12 +1,13 @@
+
 <!DOCTYPE html>
 <html  lang="ko">
 <head>
         <meta charset="UTF-8"> 
        <title>사당 12구역 |사당 신속통합기획 재개발 통합페이지</title> 
 
-        <!-- 뷰포트 설정 -->
+        <!-- 뷰포트 설정 -->
 
-       <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=3,minimum-scale=1, user-scalable=yes,viewport-fit=cover"> 
+       <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=3,minimum-scale=1, user-scalable=yes,viewport-fit=cover"> 
 <meta name="author" content="사당12구역 | 사당동 신속통합기획">
 <meta name="description" content="사당12구역 |사당 신속통합기획 재개발 통합페이지">
 <meta name="keywords" content="사당 신통 재개발, 사당동 신속통합기획, 사당 신속통합기획 재개발 통합페이지, 사당동288, 사당12구역, 사당동, 서울신통">
@@ -1376,51 +1377,71 @@ window.addEventListener('DOMContentLoaded', function () {
 });
 </script>-->
 
-  
+
 <!-- ✅ 팝업이 삽입될 컨테이너 -->
 <div id="popup-container"></div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    
-    /** ✅ 팝업 노출 기간 설정 **/
-    const startDate = new Date("2025-10-09T00:00:00"); // 노출 시작일
-    const endDate = new Date("2025-10-10T12:59:59"); // 노출 종료일
-    const today = new Date();
-    
-    // ✅ 팝업을 오늘 닫았는지 여부 (localStorage)
-    const closedToday = localStorage.getItem("popupClosedDate");
-    const todayString = today.toDateString();
-    
-    // ✅ 오늘 이미 닫은 경우 → 표시하지 않음
-    if (closedToday === todayString) return;
-    
-    // ✅ 노출 기간이 아닐 경우 → 표시하지 않음
-    if (today < startDate || today > endDate) return;
-    
-    /** ✅ popup.html 불러오기 **/
-    fetch("https://cnt-mh.github.io/REDEV/SITE2/SD/12/pop.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("popup-container").innerHTML = html;
-        
-        const wrap = document.getElementById("popup-wrap");
-        const closeBtn = document.getElementById("popup-confirm");
-        
-        if (wrap) wrap.style.display = "flex";
-        
-        // 확인 버튼 클릭 시 닫기 + 오늘은 다시 안 보기
-        if (closeBtn) {
-          closeBtn.addEventListener("click", () => {
-            wrap.style.display = "none";
-            localStorage.setItem("popupClosedDate", todayString);
-          });
-        }
-      })
-      .catch(err => console.error("팝업 로드 실패:", err));
-  });
-</script>
+document.addEventListener("DOMContentLoaded", () => {
 
+  /** ✅ 노출 기간 설정 **/
+  const startDate = new Date("2025-11-06T00:00:00");
+  const endDate   = new Date("2025-12-10T23:59:59");
+  const today     = new Date();
+  if (today < startDate || today > endDate) return;
+
+  /** ✅ popup.html 불러오기 (캐시 방지) **/
+  fetch(`https://cnt-mh.github.io/REDEV/SITE2/SD/12/pop.html?ver=${Date.now()}`)
+    .then(res => res.text())
+    .then(html => {
+      const container = document.getElementById("popup-container");
+      container.innerHTML = html;
+
+      /** ✅ 팝업 표시 **/
+      const wrap = document.getElementById("popup-wrap");
+      const closeBtn = document.getElementById("popup-confirm");
+      if (wrap) wrap.style.display = "flex";
+      if (closeBtn) closeBtn.addEventListener("click", () => wrap.style.display = "none");
+
+      /** ✅ Shorts 자동 생성 **/
+      const shortsList = [
+        { id: "a6AyQj_yMZ4" },
+        //{ id: "zt0u0L7eEPw" },
+        // 필요 시 추가
+        // { id: "Ll8uSvrIuPI" },
+        // { id: "IwOYPbqG74g" },
+      ];
+
+      const containerEl = document.getElementById("shortsContainer");
+      if (containerEl) {
+        shortsList.forEach(v => {
+          const slide = document.createElement("div");
+          slide.className = "swiper-slide";
+          slide.innerHTML = `
+            <a href="https://youtube.com/shorts/${v.id}" target="_blank" class="thumb-slide" aria-label="Shorts 바로가기">
+              <img src="https://img.youtube.com/vi/${v.id}/hqdefault.jpg" alt="Shorts 썸네일">
+              <span class="yt-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/YouTube_full-color_icon_%282024%29.svg/240px-YouTube_full-color_icon_%282024%29.svg.png" alt="YouTube 아이콘">
+              </span>
+            </a>`;
+          containerEl.appendChild(slide);
+        });
+      }
+
+      /** ✅ Swiper 초기화 **/
+      new Swiper('.shorts-swiper', {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 10,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+      });
+    })
+    .catch(err => console.error("팝업 로드 실패:", err));
+});
+</script>
 
 </body>
 
