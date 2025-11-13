@@ -20,16 +20,14 @@
         <meta property="og:image" content="https://raw.githubusercontent.com/CNT-MH/REDEV/main/SITE2/YD/7/썸네일.png">
         <meta property="og:url" content="https://m.site.naver.com/1TMtG">
 
-        <!-- ✅ 외부 리소스 -->
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
-        <!-- Bootstrap CSS --><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Swiper CSS --><link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
-        <!-- Bootstrap JS (선택) -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0/html2canvas.js"></script>
-        <script src = "test.js"></script>
-        <!-- Swiper.js (터치 슬라이더) 스타일 적용 -->
-        <script src="https://unpkg.com/swiper@10.0.0-beta.1/swiper-bundle.min.js"></script>
+		   <!--외부 리소스-->
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://unpkg.com/swiper/swiper-bundle.min.css" rel="stylesheet" > 
+		<!-- Bootstrap JS (선택) -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0/html2canvas.js"></script>
+		<script src = "test.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.js"></script>
 
         <script type="text/javascript">document.oncontextmenu = function(){return false;}</script>
@@ -422,15 +420,22 @@
 
 <section class="board-section">
                 <!--게시물 - 2탄  -->
-        <div class="board-card" style="margin-top: 1.25rem;">
+         <!--<div class="board-card" style="margin-top: 1.25rem;">
                 <a href="https://www.youtube.com/watch?v=zt0u0L7eEPw&list=PLqrOhy8cJakG4efw9pB-OSVdkknstUyXR" target="_blank" class="board-link">
                         <div class="board-icon">3</div>
                         설명회영상바로가기
                         <span class="badge-new">NEW</span>
                 </a>
+        </div>-->
+
+ <!--게시물 - 2탄  -->
+        <div class="board-card" style="margin-top: 1.25rem;">
+                <a href="https://cnt-mh.github.io/REDEV/SITE2/YD/7/ADD/board3.html" target="_blank" class="board-link">
+                        <div class="board-icon">3</div>
+                        용두7구역 인근분양가 및 매매가
+						   <span class="badge-new">NEW</span>
+                </a>
         </div>
-
-
 
         <!--게시물 - 2탄  -->
         <div class="board-card" style="margin-top: 1.25rem;">
@@ -469,14 +474,104 @@
 <!--######################################################-->
 
 
+
+
 <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
 <!--바로가기섹션시작-->
-<section>
+<!-- ✅ Swiper Section 시작 -->
+<section class="container py-4">
 
   <!--############# 스와이퍼 CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-  <style>
+ 
+
+<!-- Swiper 컨테이너: 가운데 메인, 양옆 슬쩍 보이는 레이아웃 -->
+	<div class="swiper" id="iconCardSwiper">
+	 <div class="swiper-wrapper">
+		
+		<!--✅ 설명회 영상 -->
+
+	  
+		<div class="swiper-slide">
+		 <a class="icon-card"
+          href="https://www.youtube.com/watch?v=zt0u0L7eEPw&list=PLqrOhy8cJakG4efw9pB-OSVdkknstUyXR"
+          target="_blank" 
+          aria-label="유튜브 영상 바로가기">
+          <img class="icon-card__img" 
+               src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/YouTube_full-color_icon_%282024%29.svg/240px-YouTube_full-color_icon_%282024%29.svg.png" 
+               alt="유튜브 아이콘" />
+          <div class="icon-card__label">251104 설명회
+		  <span class="badge-new">NEW</span>
+		  </div>
+		  
+        </a>
+		</div>
+	
+		<!-- ✅블로그 바로가기 -->
+		<div class="swiper-slide">
+			<a class="icon-card" 
+           href="https://m.blog.naver.com/moon9013"
+           target="_blank" 
+           aria-label="블로그 바로가기">
+          <img class="icon-card__img" 
+               src="https://mblogthumb-phinf.pstatic.net/MjAyNTEwMjJfMTMy/MDAxNzYxMDg5NTE1NzY2.tY6_RWPVAglx1AIAsQqZU2f58Z9N6H66tY4HrWy4hIEg.t3YUguioOBh1yc08jtBwTWFl-RD2mn6VRRrnBa-ubOgg.PNG/image.png?type=w800"
+               style="object-fit: contain;" 
+               alt="블로그 아이콘" />
+          <div class="icon-card__label">블로그 바로가기</div>
+        </a>
+		</div>
+
+		
+
+
+      <!-- 필요 시 더 추가 가능 -->
+	 </div>
+
+    <!-- 네비게이션 & 페이지네이션 -->
+    <div class="swiper-button-prev" aria-label="이전"></div>
+    <div class="swiper-button-next" aria-label="다음"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+
+
+
+</section>
+
+<!-- ✅ Swiper JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  const swiper = new Swiper('#iconCardSwiper', {
+    /* 가운데 정렬 + 좌우 미리보기 */
+	loop: true,
+	
+    centeredSlides: true,
+   //  slidesPerView: 'auto', // .swiper-slide의 width로 제어
+    spaceBetween: 16 ,
+    
+
+    /* UX 향상 */
+    grabCursor: true,
+    keyboard: { enabled: true },
+    watchSlidesProgress: true,
+
+    /* 내비게이션 / 페이지네이션 */
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    pagination: { el: '.swiper-pagination', clickable: true },
+
+    /* 반응형 간격 조정 */
+    breakpoints: {
+      0:   { spaceBetween: 12 },
+      576: { spaceBetween: 14 },
+      992: { spaceBetween: 16 }
+    }
+  });
+</script>
+
+ <style>
 
   .swiper-button-next,
 .swiper-button-prev {
@@ -551,15 +646,15 @@
     .swiper { padding: .5rem .25rem 2.25rem; }
 
     /* 슬라이드 폭을 고정하지 않고 반응형 비율로 지정 → 중앙은 크게, 양옆은 살짝 보이게 */
-    .swiper-slide { width: 78%; }
+    .swiper-slide { width: 75%; }
     @media (min-width: 576px){ .swiper-slide { width: 58%; } }
     @media (min-width: 768px){ .swiper-slide { width: 46%; } }
     @media (min-width: 992px){ .swiper-slide { width: 32%; } }
 
     /* active 카드 강조 */
-    .swiper-slide .icon-card { transform: scale(.96); opacity: .9; }
+    .swiper-slide .icon-card { transform: scale(.8); opacity: .8; }
     .swiper-slide-active .icon-card {
-      transform: scale(1.02);
+      transform: scale(0.9);
       opacity: 1;
       box-shadow: 0 14px 34px rgba(0,0,0,.16);
       border-color: rgba(13,110,253,.25); /* BS primary */
@@ -573,77 +668,7 @@
 
 
 
-<!-- 바로가기 섹션 -->
-<section class="container py-4">
 
-  <!-- ✅ Swiper 컨테이너 -->
-  <div class="swiper" id="iconCardSwiper">
-    <div class="swiper-wrapper">
-
-
-      <!-- 🌐 2) 블로그 바로가기 -->
-      <div class="swiper-slide">
-        <a class="icon-card" 
-           href="https://m.blog.naver.com/moon9013"
-           target="_blank" 
-           aria-label="블로그 바로가기">
-          <img class="icon-card__img" 
-               src="https://mblogthumb-phinf.pstatic.net/MjAyNTEwMjJfMTMy/MDAxNzYxMDg5NTE1NzY2.tY6_RWPVAglx1AIAsQqZU2f58Z9N6H66tY4HrWy4hIEg.t3YUguioOBh1yc08jtBwTWFl-RD2mn6VRRrnBa-ubOgg.PNG/image.png?type=w800"
-               style="object-fit: contain;" 
-               alt="블로그 아이콘" />
-          <div class="icon-card__label">블로그 바로가기</div>
-        </a>
-      </div>
- <!-- 🎬 1) 설명회영상바로가기 -->
-   <!--  <div class="swiper-slide"> 
-        <a class="icon-card"
-          href="https://www.youtube.com/watch?v=zt0u0L7eEPw&list=PLqrOhy8cJakG4efw9pB-OSVdkknstUyXR"
-          target="_blank" 
-          aria-label="유튜브 영상 바로가기">
-          <img class="icon-card__img" 
-               src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/YouTube_full-color_icon_%282024%29.svg/240px-YouTube_full-color_icon_%282024%29.svg.png" 
-               alt="유튜브 아이콘" />
-          <div class="icon-card__label">설명회영상바로가기 <span class="badge-new">NEW</span></div>
-        </a>
-      </div>-->
-
-    </div>
-
-    <!-- ✅ 내비게이션 & 페이지네이션 -->
-    <div class="swiper-button-prev" aria-label="이전"></div>
-    <div class="swiper-button-next" aria-label="다음"></div>
-    <div class="swiper-pagination"></div>
-  </div>
-</section>
-
-<!-- ✅ Swiper 작동 스크립트 -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-  const swiper = new Swiper('#iconCardSwiper', {
-    centeredSlides: true,     // 중앙 정렬
-    slidesPerView: 'auto',    // 자동 폭
-    spaceBetween: 16,
-    loop: true,               // ✅ 무한 반복
-    grabCursor: true,
-    keyboard: { enabled: true },
-    watchSlidesProgress: true,
-    navigation: { 
-      nextEl: '.swiper-button-next', 
-      prevEl: '.swiper-button-prev' 
-    },
-    pagination: { 
-      el: '.swiper-pagination', 
-      clickable: true 
-    },
-    breakpoints: {
-      0:   { spaceBetween: 12 },
-      576: { spaceBetween: 14 },
-      992: { spaceBetween: 16 }
-    }
-  });
-</script>
-
-</section>
 
 <div class="container py-3 mb-4  "></div>
 
