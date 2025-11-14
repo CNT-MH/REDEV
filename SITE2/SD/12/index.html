@@ -542,42 +542,60 @@
 <!--게시판섹션시작-->
 
 <section class="board-section">
-
-        <!--게시물 - 재건축 소설명회 영상
-        <div class="board-card" style="margin-top: 1.25rem;">
-                <a href="https://cnt-mh.github.io/MH/DEV/APT/EXPO/AS/utu2.html" target="_blank" class="board-link">
-                        <div class="board-icon">4</div>
-                        재건축 소설명회 영상 
-                        <span class="badge-new">NEW</span>
-                </a>
-        </div>
-
+	
  <!--게시물 - 2탄  -->
         <div class="board-card" style="margin-top: 1.25rem;">
                 <a href="https://n.news.naver.com/article/421/0008583281" target="_blank" class="board-link">
-                        <div class="board-icon">1</div>
+                        <div class="board-icon">5</div>
                         251104 사당12구역 재개발 본격화
                         <span class="badge-new">NEW</span>
                 </a>
         </div>
 
-        <!--게시물 - 2탄  -->
-       <!-- <div class="board-card" style="margin-top: 1.25rem;">
-                <a href="https://cnt-mh.github.io/REDEV/SITE2/SD/300/ADD/board1.html" target="_blank" class="board-link">
-                        <div class="board-icon">2</div>
-                        사당12구역 8월 소식지
-                        
+  <!-- 게시물 - 카드형 게시판 항목 -->
+        <div class="board-card" style="margin-top: 1.25rem;">
+                <a href="https://cnt-mh.github.io/REDEV/SITE2/SD/12/ADD/board4.html" target="_blank" class="board-link">
+                        <div class="board-icon">5</div>
+                        25-03호 사당12구역 소식지
                 </a>
-        </div>-->
-
+        </div>
+  <!-- 게시물 - 카드형 게시판 항목 -->
+        <div class="board-card" style="margin-top: 1.25rem;">
+                <a href="https://cnt-mh.github.io/REDEV/SITE2/SD/12/ADD/board4.html" target="_blank" class="board-link">
+                        <div class="board-icon">4</div>
+                        25-02호 사당12구역 소식지
+                </a>
+        </div>
+		
 
   <!-- 게시물 - 카드형 게시판 항목 -->
-        <!--<div class="board-card" style="margin-top: 1.25rem;">
-                <a href="https://cnt-mh.github.io/REDEV/SITE2/SD/300/ADD/board2.html" target="_blank" class="board-link">
-                        <div class="board-icon">1</div>
-                        사당12구역 7월 소식지
+        <div class="board-card" style="margin-top: 1.25rem;">
+                <a href="https://cnt-mh.github.io/REDEV/SITE2/SD/12/ADD/board3.html" target="_blank" class="board-link">
+                        <div class="board-icon">3</div>
+                        25-01호 사당12구역 소식지
                 </a>
-        </div>-->
+        </div>
+		
+
+  
+  <!-- 게시물 - 카드형 게시판 항목 -->
+        <div class="board-card" style="margin-top: 1.25rem;">
+                <a href="https://cnt-mh.github.io/REDEV/SITE2/SD/12/ADD/board2.html" target="_blank" class="board-link">
+                        <div class="board-icon">2</div>
+                        24-02호 사당12구역 소식지
+                </a>
+        </div>
+		
+
+  <!-- 게시물 - 카드형 게시판 항목 -->
+        <div class="board-card" style="margin-top: 1.25rem;">
+                <a href="https://cnt-mh.github.io/REDEV/SITE2/SD/12/ADD/board1.html" target="_blank" class="board-link">
+                        <div class="board-icon">1</div>
+                        24-01호 사당12구역 소식지
+                </a>
+        </div>
+		
+	
         <p>
         <br>
 
@@ -615,11 +633,11 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.9);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.32);
-  backdrop-filter: blur(10px);
+   box-shadow: none !important;
     -webkit-backdrop-filter: blur(10px);
   transition: all .3s ease;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
 }
 
 .swiper-button-next::after,
@@ -677,7 +695,7 @@
       padding: 1rem;
     }
     .icon-card__img { width: 53px; height: 40px; border-radius: 12px; object-fit: cover; }
-    .icon-card__label { font-weight: 700; font-size: .98rem; color: #111; text-align: center; line-height: 1.2; }
+    .icon-card__label { font-weight: 700; font-size: 1.02rem; color: #111; text-align: center; line-height: 1.2; }
 
     /* --- Swiper 컨테이너 --- */
     .swiper { padding: .5rem .25rem 2.25rem; }
@@ -689,9 +707,9 @@
     @media (min-width: 992px){ .swiper-slide { width: 32%; } }
 
     /* active 카드 강조 */
-    .swiper-slide .icon-card { transform: scale(.96); opacity: .9; }
+    .swiper-slide .icon-card { transform: scale(.85); opacity: .9; }
     .swiper-slide-active .icon-card {
-      transform: scale(1.02);
+      transform: scale(0.85);
       opacity: 1;
       box-shadow: 0 14px 34px rgba(0,0,0,.16);
       border-color: rgba(13,110,253,.25); /* BS primary */
