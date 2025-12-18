@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Shorts popup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    .popup-wrap {
+      background-color: rgba(0,0,0,.4);
+      justify-content: center;
+      align-items: center;
+      position: fixed; inset: 0;
+      display: none;
+      padding: 15px;
+      z-index: 9999;
+    }
+    .popup {
+      width: 90%; max-width: 500px;
+      border-radius: 10px; overflow: hidden;
+     box-shadow: 5px 10px 10px 1px rgba(0,0,0,.3);
+      background: #fff;
+      color: #000;
+    }
+    .popup-body { text-align:center; font-weight:bold; }
+
+    .popup-foot {
+      display:flex; border-top:.1px solid #ccc; height:50px;
+    }
+    .pop-btn {
+      flex:1; display:flex; justify-content:center; align-items:center;
+      cursor:pointer; font-weight:bold; background:#cdcdcd; color:#fff;
+      transition: transform .05s ease, opacity .05s ease;
+    }
+    .pop-btn:active { transform:scale(.97); opacity:.8; }
+
+ /* 썸네일 + 유튜브 아이콘 */
+   .thumb-slide {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  display: block;
+}
+
+.thumb-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  transition: transform .3s ease;
+}
+
+/* ✅ 유튜브 아이콘을 중앙 정렬 */
+.yt-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  pointer-events: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.yt-icon img {
+  width: 48px;
+  height: auto;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* ✅ 호버 시 약간 확대 및 반짝임 효과 */
+.thumb-slide:hover .yt-icon {
+  transform: translate(-50%, -50%) scale(1.1);
+
+}
+
+  /* === Swiper 페이지 점 스타일 === */
+  .swiper-pagination {
+    position: relative;
+    margin-top: 8px;
+    text-align: center;
+  }
+
+  /* 비활성 점 */
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: #818181;
+    opacity: 1;
+    margin: 0 5px !important;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255);
+    transition: all .3s ease;
+  }
+
+  /* 활성 점 — 🔮 블루계열 그라데이션 + 광택 효과 */
+  .swiper-pagination-bullet-active {
+    background: linear-gradient(135deg, #007aff);
+    border: none;
+    transform: scale(1.4);
+   /* box-shadow: 0 0 8px rgba(224,0,255,0.8), 0 0 14px rgba(255,0,64,0.6);
+*/}
+</style>
+
+<script>
+  new Swiper('.shorts-swiper', {
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 10,
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true,
+    },
+  });
+</script>
+</head>
+
+<body>
+
+<div class="popup-wrap" id="popup-wrap">
+  <div class="popup">
+    <div class="popup-body" style="padding:15px;">
+      <h3 style="color: #002ea7; padding-bottom:15px;"> 🎉 사당 12구역🎉 </h3>
+
+      <!-- ✅ 기존 유튜브 본영상 
+      <a
+        href="https://www.youtube.com/watch?v=zt0u0L7eEPw"
+        target="_blank"
+        class="board-link thumb-wrap"
+        aria-label="설명회 영상 바로보기"
+      >
+        <img
+          src="https://raw.githubusercontent.com/CNT-MH/REDEV/main/SITE2/YD/7/popup2511.png"
+          alt="설명회 썸네일"
+          class="thumb"
+          style="margin:10px 0; filter: brightness(0.3); transition: all 0.3s ease;"
+        >
+        <span class="yt-badge">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/YouTube_full-color_icon_%282024%29.svg/240px-YouTube_full-color_icon_%282024%29.svg.png"
+            alt="" aria-hidden="true">
+        </span>
+      </a>
+-->
+      <!-- ✅ Shorts 썸네일 스와이프 -->
+      <div class="shorts-swiper swiper">
+        <div class="swiper-wrapper" id="shortsContainer">
+          <!-- 📽JS로 자동 생성 -->
+        </div>
+
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <div class="popup-foot">
+      <div class="pop-btn" id="popup-confirm">확인</div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+<script>
+
+  // ✅ 등록할 Shorts 영상 ID 목록
+  const shortsList = [
+    { id: "a6AyQj_yMZ4" },
+    
+    //https://youtu.be/Ll8uSvrIuPI?si=ag_dH_QGL8fQOPLS
+   // { id: "Ll8uSvrIuPI" },
+    //https://youtu.be/IwOYPbqG74g?si=OyDcySfPPhBWomrX
+   //  {id: "IwOYPbqG74g" } 
+  ];
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const popup = document.getElementById('popup-wrap');
+    popup.style.display = 'flex';
+    document.getElementById('popup-confirm').addEventListener('click', () => {
+      popup.style.display = 'none';
+    });
+// ✅ Shorts 썸네일 자동 생성
+const container = document.getElementById('shortsContainer');
+shortsList.forEach(v => {
+  const slide = document.createElement('div');
+  slide.className = 'swiper-slide';
+  slide.innerHTML = `
+    <a href="https://youtube.com/shorts/${v.id}" target="_blank" class="thumb-slide" aria-label="Shorts 바로가기">
+      <img src="https://img.youtube.com/vi/${v.id}/hqdefault.jpg" alt="Shorts 썸네일">
+      <span class="yt-icon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/YouTube_full-color_icon_%282024%29.svg/240px-YouTube_full-color_icon_%282024%29.svg.png" alt="YouTube 아이콘">
+      </span>
+    </a>`;
+  container.appendChild(slide);
+});
+
+    // ✅ Swiper 초기화
+    new Swiper('.shorts-swiper', {
+      loop: true,
+      slidesPerView: 1,
+      spaceBetween: 10,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  });
+</script>
+
+</body>
+</html>
