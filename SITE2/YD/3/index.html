@@ -1,1 +1,1095 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+        <meta charset="UTF-8"> 
+       <title>용두3구역 | 신속통합기획 재개발 통합페이지</title> 
 
+        <!-- ✅ 메타정보 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3, minimum-scale=1, user-scalable=yes, viewport-fit=cover">
+        <meta name="author" content="용두3구역 | 용두동 신속통합기획">
+        <meta name="description" content="용두3구역 | 신속통합기획 재개발 통합페이지">
+        <meta name="keywords" content="용두3구역, 신속통합기획, 재개발, 용두동 39번지일원, 서울 신통기획">
+        <link rel="canonical" href="https://cnt-mh.github.io/REDEV/SITE2/YD/3/index.html">
+        <meta name="robots" content="index,follow">
+
+        <!-- ✅ SNS 썸네일 -->
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="용두3구역 | 신속통합기획 재개발 통합페이지">
+        <meta property="og:description" content="용두3구역 | 신속통합기획 재개발 통합페이지">
+        <meta property="og:image" content="https://raw.githubusercontent.com/CNT-MH/REDEV/main/SITE2/YD/3/용두3구역_썸네일.PNG">
+        <meta property="og:url" content="https://cnt-mh.github.io/REDEV/SITE2/YD/3/index.html">
+
+        <!-- ✅ 외부 리소스 -->
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+        <!-- Bootstrap CSS --><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Swiper CSS --><link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
+        <!-- Bootstrap JS (선택) -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0/html2canvas.js"></script>
+        <script src = "test.js"></script>
+        <!-- Swiper.js (터치 슬라이더) 스타일 적용 -->
+        <script src="https://unpkg.com/swiper@10.0.0-beta.1/swiper-bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.js"></script>
+
+        <script type="text/javascript">document.oncontextmenu = function(){return false;}</script>
+
+<STYLE>
+
+                html, body {
+                                margin: 0;
+                                padding: 0;
+                                font-family: 'Noto Sans KR', sans-serif;
+                                font-size: 16px;
+                                line-height: 1.5;
+                                background-color: white;
+                }
+
+                .container {
+                                max-width: 100%;
+                                padding-left: 4vw;
+                                padding-right: 4vw;
+                }
+
+                .container-custom {
+                                max-width: 1155px;
+                                margin: 0 auto;
+                                padding-left: 2vw;
+                                padding-right: 2vw;
+                }
+                /* 제목 */
+               .title {
+                                background: #000000;
+                                background-size: 300% 300%;
+                                box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+                                cursor: pointer;
+                                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                                animation: gradientShift1 15s ease infinite;
+                }
+
+                /* 아이콘 */
+                .icon-img-u{
+                                height: 2rem;
+                                object-fit: cover;
+                }
+
+                .icon-img {
+                                height:100%;
+                                object-fit: cover;
+                                max-width: 100%; 
+                }
+
+                .icon-label {
+                                margin-top: 8px;
+                                font-size: 0.9rem;
+                                font-weight: 500;
+                                color: #333;
+                }
+
+                .fs-4 {
+                                font-size: clamp(2rem, 5vw, 3rem);
+                                font-weight: bold;
+                }
+
+                .fs-5 {
+                                text-align: center;
+                }
+
+                .py-3 {
+                                padding-top: 0.5rem !important;
+                                padding-bottom: 0.5rem !important;
+                                align-content: center;
+                }        
+
+                .footer {
+                                text-align: center;
+                                padding: 2vw 0;
+                                font-size: 0.9rem;
+                                color: #aaa;
+                }
+
+                /* 유툽 */
+                .youtube-container {
+                                  position: relative;
+                                  width: 100%;
+                                  max-width: 1260px;
+                                  margin: 0 auto;
+                                  padding-bottom: 56.25%;
+                                  height: 0;
+                                  overflow: hidden;
+                                  border-radius: 12px;
+                                  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+                }
+
+                .youtube-container iframe {
+                                  position: absolute;
+                                  top: 0; left: 0;
+                                  width: 100%;
+                                  height: 100%;
+                }
+
+
+                /* 설문 */
+                /* 그라데이션 애니메이션 정의 */
+                @keyframes gradientShift {
+                                  0%   { background-position: 0% 50%; }
+                                  50%  { background-position: 100% 50%; }
+                                  100% { background-position: 0% 50%; }
+                }
+
+                /* 화려한 버튼 스타일 */
+                .btn-fancy {
+                                display: inline-block;
+                                padding: 0.8rem 1.5rem;
+                                font-size: 1.0rem;
+                                font-weight: 800;
+                                color: #fff;
+                                text-decoration: none;
+                                text-transform: uppercase;
+                                letter-spacing: 1px;
+                                border: none;
+                                border-radius: 15px;
+                                background: linear-gradient(45deg, #ff416c, #ff4b2b, #1d2671, #c33764);
+                                background-size: 300% 300%;
+                                box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+                                cursor: pointer;
+                                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                                animation: gradientShift 5s ease infinite;
+                }                
+                /* (기존) 고정 위치 */
+                .btn-fancy-fixed {
+                                position: fixed;
+                                bottom: 15px;
+                                left: 50%;
+                                transform: translateX(-50%);
+                                z-index: 1000;
+                }
+
+                /* (기존) 일반 호버—고정 버튼 이외에는 사용 */
+                .btn-fancy:hover {
+                                transform: translateY(-3px) scale(1.05);
+                                box-shadow: 0 0 25px rgba(0,0,0,0.3);
+                }
+
+                /* (추가) 고정된 버튼의 호버—translateX 유지 */
+                .btn-fancy.btn-fancy-fixed:hover {
+                                transform: translateX(-50%) translateY(-3px) scale(1.05);
+                                box-shadow: 0 0 25px rgba(0,0,0,0.3);
+                }
+
+                /* 스크롤 시에도 하단 중앙에 고정 */
+                .btn-fancy-fixed {
+                                position: fixed;
+                                bottom: 5px;
+                                left: 50%;
+                                transform: translateX(-50%);
+                                z-index: 1000;
+                }  
+
+                /* 상담버튼 */
+                /* 그라데이션 애니메이션 정의 */
+                @keyframes gradientShift1 {
+                                0%   { background-position: 0% 50%; }
+                                50%  { background-position: 100% 50%; }
+                                100% { background-position: 0% 50%; }
+                }
+
+                /* 화려한 버튼 스타일 */
+                .btn-fancy1 {
+                                display: inline-block;
+                                padding: 0.8rem 1.5rem;
+                                font-size: 1.0rem;
+                                font-weight: 800;
+                                color: #fff;
+                                text-decoration: none;
+                                text-transform: uppercase;
+                                letter-spacing: 1px;
+                                border: none;
+                                border-radius: 15px;   
+                                background: linear-gradient(45deg, #9a00ff, #490073, #9a00ff, #d6cadd);
+                                background-size: 300% 300%;
+                                box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+                                cursor: pointer;
+                                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                                animation: gradientShift1 5s ease infinite;
+                                }
+
+                /* (기존) 고정 위치 */
+                .btn-fancy-fixed1 {
+                                position: fixed;
+                                bottom: 15px;
+                                left: 50%;
+                                transform: translateX(-50%);
+                                z-index: 1000;
+                }
+
+                /* (기존) 일반 호버—고정 버튼 이외에는 사용 */
+                .btn-fancy1:hover {
+                                transform: translateY(-3px) scale(1.05);
+                                box-shadow: 0 0 25px rgba(0,0,0,0.3);
+                }
+
+                /* (추가) 고정된 버튼의 호버—translateX 유지 */
+                .btn-fancy1.btn-fancy-fixed1:hover {
+                                transform: translateX(-50%) translateY(-3px) scale(1.05);
+                                box-shadow: 0 0 25px rgba(0,0,0,0.3);
+                }
+
+                /* 스크롤 시에도 하단 중앙에 고정 */
+                .btn-fancy-fixed1 {
+                                position: fixed;
+                                bottom: 5px;
+                                left: 50%;
+                                transform: translateX(-50%);
+                                z-index: 1000;
+                }  
+
+                .btn-fancy1:active {
+                                color: #000; /* 클릭 시 원하는 글씨색 */
+                }
+
+
+</STYLE>
+</head>
+
+  <!-- 본문 코드 -->
+<body>
+        <div class="container "  style="padding-left: 2vw; padding-right: 2vw;" > 
+        <header>
+    <!--    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">-->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top title"  >
+                <div class="container-fluid">
+                        <a class="navbar-brand fs-4 fw-bold " href="#" style="letter-spacing: -3px;;">용두동 39-361번지 일대</a>
+                      <!-- 우측 열 나눔 섹션시작--> 
+                        <div class="col-md-auto">
+                        </div>
+            <div class="col col-lg-2" style="text-align: right;"> 
+                <div class="row text-center icon-grid"></div>
+                        </div>
+                        <div class="row">
+                                <!--   라인 <nav class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom" ></nav>-->
+                        </div>
+                        <!-- 우측 열 나눔 섹션끝--> 
+                </div>
+                <br>
+        </div>
+                <p>
+
+
+
+
+                </p><br><p></p><p></p><p><p>
+
+<section id="youtube-section" class="container-custom my-4">
+<style>
+    .shorts-container {
+      position: relative;
+      width: 100%;
+    /*   max-width: 409px; 쇼츠 원본 크기 */
+             max-width: 500px; /* 이미지 */
+      aspect-ratio: 9 / 9;
+      margin: 0 auto;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .shorts-container img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      /*object-fit: ;   /* 꽉 차게 표시 */
+    }
+  </style>
+
+   <div class="shorts-container">
+
+     <img src="https://raw.githubusercontent.com/CNT-MH/REDEV/main/SITE2/YD/3/용두3구역_썸네일.PNG"
+         alt="용두3구역 이미지 광고">
+  </div>
+</section>
+
+
+<style>
+        .board-section {
+                max-width: inherit;  
+                margin: 0;
+                padding: 0rem;
+        }
+
+
+        .board-card {
+                position: relative;
+                background-color: #f9f9f9;
+                border-radius: 0.5rem;
+                padding: 0.8rem 0.8rem;
+                margin-bottom: 1rem;
+                transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        .board-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+        }
+
+        .board-link {
+                text-decoration: none;
+                font-weight: 610;
+                color: #333;
+                display: inline-flex;
+                align-items: center;
+        }
+
+        .board-icon {
+                flex-shrink: 0;
+                width: 32px;
+                height: 32px;
+                margin-right: 12px;
+                background-color: #9f00ff;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                font-size: 18px;
+
+        }
+        /*모바일버전일떄*/
+        @media (max-width: 576px) {
+                .board-card {
+                        padding: 1rem 0.3rem;
+                }
+                .board-icon {
+                        width: 28px;
+                        height: 28px;
+                        font-size: 16px;
+                }
+        }
+
+        /* 새로운게시물표시*/
+        .badge-new {
+                background-color: #ff2e63;
+                color: #fff;
+                font-size: 0.45rem;
+                font-weight: bold;
+                padding: 1.5px 3px;
+                border-radius: 3px;
+                margin-left: 8px;
+                vertical-align: middle;
+                animation: glow 1.5s infinite ease-in-out;
+                box-shadow: 0 0 5px rgba(255, 46, 99, 0.5);
+        }
+        /* 새로운게시물표시효과*/
+        @keyframes glow {
+                0% { box-shadow: 0 0 5px rgba(255, 46, 99, 0.5); }
+                50% { box-shadow: 0 0 15px rgba(255, 46, 99, 1); }
+                100% { box-shadow: 0 0 5px rgba(255, 46, 99, 0.5); }
+        }
+</style>
+
+
+<!--######################################################-->
+<!-- 구분선시작-->
+ <div class="container py-3  border-bottom"></div>
+        <div class="container py-3  border-bottom"></div>
+        <div class="container py-3  border-bottom">
+                <div class="flex-wrap justify-content-center fs-4 fw-bold" style="text-align: center;">
+                용두3구역 신속통합기획
+                <div> 소식 모아보기</div>
+                </div>
+        </div>
+
+<!-- 구분선끝-->
+<!--######################################################-->
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<!--게시판섹션시작-->
+
+<section class="board-section">
+                <!--게시물 - 2탄  -->
+   <!--     <div class="board-card" style="margin-top: 1.25rem;">
+                <a href="https://www.youtube.com/watch?v=zt0u0L7eEPw&list=PLqrOhy8cJakG4efw9pB-OSVdkknstUyXR" target="_blank" class="board-link">
+                        <div class="board-icon">3</div>
+                        설명회영상바로가기
+                        <span class="badge-new">NEW</span>
+                </a>
+        </div>-->
+
+        <!--- 2탄  -->
+        <div class="board-card" style="margin-top: 1.25rem;">
+               <a href="https://cnt-mh.github.io/REDEV/SITE2/YD/3/ADD/board3.html" target="_blank" class="board-link">
+                        <div class="board-icon">1</div>
+                        용두3구역 소식지
+                       <span class="badge-new">NEW</span>
+                </a>
+        </div>
+
+
+        <!--- 2탄  
+        <div class="board-card" style="margin-top: 1.25rem;">
+                <a href="https://cnt-mh.github.io/REDEV/SITE2/YD/3/ADD/board3.html" target="_blank" class="board-link">
+                        <div class="board-icon">3</div>
+                        용두3구역 주변시세분석
+                       <span class="badge-new">NEW</span>
+                </a>
+        </div> -->
+
+      
+
+
+
+</section>
+
+<!--게시판섹션끝-->
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+
+<!--######################################################-->
+<!-- 구분선시작-->
+        <div class="container py-3  border-bottom"></div>
+        <div class="container py-3 mb-4 border-bottom">
+                <div class="d-flex flex-wrap justify-content-center  fs-4 f fw-bold">
+                바로가기 모음
+                </div>
+        </div>
+<!-- 구분선끝-->
+<!--######################################################-->
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<!--바로가기섹션시작-->
+<section>
+
+  <!--############# 스와이퍼 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+
+  .swiper-button-next,
+.swiper-button-prev {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.32);
+  backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  transition: all .3s ease;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  mask-size: cover;
+  -webkit-mask-size: cover;
+  background-color: #0d6efd; /* Bootstrap primary */
+}
+
+.swiper-button-next::after {
+  mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>');
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>');
+}
+
+.swiper-button-prev::after {
+  mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>');
+
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>');
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background:  #5c8ef9;
+  box-shadow: 0 10px 24px rgba(0,0,0,.18);
+}
+.swiper-button-next:hover::after,
+.swiper-button-prev:hover::after {
+  background-color: #fff;
+}
+
+    :root {
+      --card-radius: 16px;
+      --card-shadow: 0 6px 20px rgba(0,0,0,0%);
+      --gap: 16px;
+           --swiper-navigation-size: 4em;
+    }
+
+    /* --- 카드 --- */
+    .icon-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      text-decoration: none;
+      height: 160px;
+      border-radius: var(--card-radius);
+      border: 1px solid rgba(0,0,0,.08);
+      box-shadow: var(--card-shadow);
+      background: #fff;
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+      padding: 1rem;
+    }
+    .icon-card__img { width: 53px; height: 40px; border-radius: 12px; object-fit: cover; }
+    .icon-card__label { font-weight: 700; font-size: .98rem; color: #111; text-align: center; line-height: 1.2; }
+
+    /* --- Swiper 컨테이너 --- */
+    .swiper { padding: .5rem .25rem 2.25rem; }
+
+    /* 슬라이드 폭을 고정하지 않고 반응형 비율로 지정 → 중앙은 크게, 양옆은 살짝 보이게 */
+    .swiper-slide { width: 78%; }
+    @media (min-width: 576px){ .swiper-slide { width: 58%; } }
+    @media (min-width: 768px){ .swiper-slide { width: 46%; } }
+    @media (min-width: 992px){ .swiper-slide { width: 32%; } }
+
+    /* active 카드 강조 */
+    .swiper-slide .icon-card { transform: scale(.96); opacity: .9; }
+    .swiper-slide-active .icon-card {
+      transform: scale(1.02);
+      opacity: 1;
+      box-shadow: 0 14px 34px rgba(0,0,0,.16);
+      border-color: rgba(13,110,253,.25); /* BS primary */
+    }
+
+    /* 내비 버튼/페이지네이션 */
+    .swiper-button-next, .swiper-button-prev { color: #0d6efd; }
+    .swiper-pagination-bullet { opacity: .4; }
+    .swiper-pagination-bullet-active { opacity: 1; }
+  </style>
+
+
+
+<!-- 바로가기 섹션 -->
+<section class="container py-4">
+
+  <!-- ✅ Swiper 컨테이너 -->
+  <div class="swiper" id="iconCardSwiper">
+    <div class="swiper-wrapper">
+
+
+      <!-- 🌐 2) 블로그 바로가기 -->
+      <div class="swiper-slide">
+        <a class="icon-card" 
+           href="https://m.blog.naver.com/moon9013"
+           target="_blank" 
+           aria-label="블로그 바로가기">
+          <img class="icon-card__img" 
+               src="https://mblogthumb-phinf.pstatic.net/MjAyNTEwMjJfMTMy/MDAxNzYxMDg5NTE1NzY2.tY6_RWPVAglx1AIAsQqZU2f58Z9N6H66tY4HrWy4hIEg.t3YUguioOBh1yc08jtBwTWFl-RD2mn6VRRrnBa-ubOgg.PNG/image.png?type=w800"
+               style="object-fit: contain;" 
+               alt="블로그 아이콘" />
+          <div class="icon-card__label">블로그 바로가기</div>
+        </a>
+      </div>
+ <!-- 🎬 1) 설명회영상바로가기 -->
+   <!--  <div class="swiper-slide"> 
+        <a class="icon-card"
+          href="https://www.youtube.com/watch?v=zt0u0L7eEPw&list=PLqrOhy8cJakG4efw9pB-OSVdkknstUyXR"
+          target="_blank" 
+          aria-label="유튜브 영상 바로가기">
+          <img class="icon-card__img" 
+               src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/YouTube_full-color_icon_%282024%29.svg/240px-YouTube_full-color_icon_%282024%29.svg.png" 
+               alt="유튜브 아이콘" />
+          <div class="icon-card__label">설명회영상바로가기 <span class="badge-new">NEW</span></div>
+        </a>
+      </div>-->
+
+    </div>
+
+    <!-- ✅ 내비게이션 & 페이지네이션 -->
+    <div class="swiper-button-prev" aria-label="이전"></div>
+    <div class="swiper-button-next" aria-label="다음"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+<!-- ✅ Swiper 작동 스크립트 -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper('#iconCardSwiper', {
+    centeredSlides: true,     // 중앙 정렬
+    slidesPerView: 'auto',    // 자동 폭
+    spaceBetween: 16,
+    loop: true,               // ✅ 무한 반복
+    grabCursor: true,
+    keyboard: { enabled: true },
+    watchSlidesProgress: true,
+    navigation: { 
+      nextEl: '.swiper-button-next', 
+      prevEl: '.swiper-button-prev' 
+    },
+    pagination: { 
+      el: '.swiper-pagination', 
+      clickable: true 
+    },
+    breakpoints: {
+      0:   { spaceBetween: 12 },
+      576: { spaceBetween: 14 },
+      992: { spaceBetween: 16 }
+    }
+  });
+</script>
+
+</section>
+
+<div class="container py-3 mb-4  "></div>
+
+<style>
+
+:root{
+  --brand:#0d6efd;            /* 포인트 컬러 */
+  --text:#1b1f24;             /* 본문 */
+  --muted:#667085;            /* 보조 텍스트 */
+  --card-bg:rgba(255,255,255,.78);
+  --card-blur:10px;
+  --radius:16px;
+}
+
+.bg-overlay::before{
+  content:"";
+  position:fixed; inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(0,0,0,.35) 60%, rgba(0,0,0,.45) 100%);
+  pointer-events:none; z-index:-1;
+}
+
+.glass-card{
+    background: #ffffff9e;
+    backdrop-filter: blur(5px);
+ /* background:rgb(255 255 255 / 49%)
+  backdrop-filter:saturate(1.2) blur(var(--card-blur));*/
+  -webkit-backdrop-filter:saturate(1.2) blur(var(--card-blur));
+  border:1px solid rgba(255,255,255,.45);
+  border-radius:var(--radius);
+  /*box-shadow:0 10px 30px rgba(0,0,0,.12);*/
+}
+
+.form-modern .form-control,
+.form-modern .form-select,
+.form-modern textarea{
+  border-radius:12px;
+  border:1px solid #e6e6e6;
+  padding:12px 14px;
+}
+
+.form-modern .form-control:focus,
+.form-modern textarea:focus{
+  border-color:var(--brand);
+  box-shadow:0 0 0 .2rem rgba(13,110,253,.15);
+}
+
+.btn-brand{
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:.5rem;
+  border:none;
+  border-radius:12px;
+  padding:.85rem 1.25rem;
+  font-weight:700;
+  letter-spacing:.2px;
+  background:linear-gradient(135deg, #0d6efd 0%, #4dabf7 100%);
+  transition:transform .15s ease, box-shadow .2s ease, filter .2s ease;
+  color:#fff !important;
+}
+.btn-brand:hover{ transform:translateY(-1px); box-shadow:0 8px 24px rgba(13,110,253,.25); }
+.btn-brand:active{ transform:translateY(0); filter:saturate(1.1); }
+
+.helper-text{ font-size:.85rem; color:var(--muted); }
+
+.section-title{
+  color:#050505; text-align:center; 
+  font-weight:800; letter-spacing:.2px;
+  text-shadow:0 2px 12px ;
+}
+
+/* 모바일 여백·정렬 최적화 */
+@media (max-width: 576px){
+
+
+  .section-title{ font-size:1.25rem; }
+  .glass-card{ border-radius:12px; 
+        background-color: #f9f9f9; }
+}
+
+</style>
+
+
+<!--######################################################-->
+<!-- 구분선시작-->
+
+        <div class="container py-3  border-bottom"></div>
+        <div class="container py-3  border-bottom">
+                <div class="flex-wrap justify-content-center fs-4 fw-bold" style="text-align: center;">
+                용두3구역 재개발사업에 대해
+                <div> 소유주님의 의견을 보내주세요</div>
+                <div> 추진준비위원회에서 친절히 </div>
+                <div>  답변드리겠습니다.</div>
+                </div>
+        </div>
+
+<!-- 구분선끝-->
+<!--######################################################-->
+
+
+<section class="container my-5">
+
+
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-7">
+      <div class="glass-card p-4 p-md-5">
+        <form id="contactForm" class="form-modern" novalidate>
+          <div class="mb-3">
+            <label for="name" class="form-label">성명</label>
+            <input type="text" class="form-control" name="name" id="name" autocomplete="name" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="dongho" class="form-label">소유지번</label>
+            <input type="text" class="form-control" name="dongho" id="dongho" autocomplete="on" placeholder="예) 용두동 39번지 " required>
+          </div>
+
+          <div class="mb-3">
+            <label for="phone" class="form-label">연락처</label>
+                        <input type="text" class="form-control" name="phone" id="phone" autocomplete="on" placeholder="예) 010-1234-5678" required>
+            <!-- <input type="tel" class="form-control" name="phone" id="phone"
+                   placeholder="010-1234-5678"
+                   inputmode="tel"
+                   pattern="^01[0-9]-?\d{3,4}-?\d{4}$"
+                   maxlength="13"
+                   required>
+            <div class="helper-text mt-1">하이픈(-)은 있어도/없어도 됩니다.</div>-->
+          </div>
+
+          <div class="mb-3">
+            <label for="message" class="form-label">메시지</label>
+            <textarea class="form-control" name="message" id="message" rows="6" maxlength="500" required></textarea>
+            <div class="helper-text mt-1">내용을 입력해 주세요</div>
+          </div>
+
+          <!-- 허니팟(봇 차단) -->
+          <input type="text" id="hp" name="hp" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off">
+
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-end">
+            <button type="submit" id="submitBtn" class="primary btn-brand w-100 w-sm-auto">
+              <span class="btn-label">의견보내기</span>
+              <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+            </button>
+            <button type="reset" class="btn btn-outline-secondary" STYLE="
+    border-radius: 10px;
+        --bs-btn-border-color: #6c757d2e;" >작성내용지우기</button>
+          </div>
+
+
+            <p id="formStatus" class="mt-3 mb-0 helper-text" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ===== 성공 안내 모달 ===== -->
+  <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0" style="border-radius: 16px;">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title fw-bold">접수 완료</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
+        </div>
+        <div class="modal-body">
+          <p class="mb-2">담당자가 확인 후 연락드리겠습니다.</p>
+          <div class="small text-muted"><span id="redirSec">3</span>초후 창이 닫힙니다.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- JS (Bootstrap + submit 로직) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+  // Bootstrap JS 로드가 되어 있어야 합니다.
+function showSuccessModal(redirectUrl, seconds = 5) {
+  const modalEl   = document.getElementById('successModal');
+  const redirSpan = document.getElementById('redirSec');
+  const goNowBtn  = document.getElementById('goNowBtn');
+ㅍ
+  // 초기값 세팅
+  let sec = Number.isFinite(seconds) ? seconds : 5;
+  redirSpan.textContent = String(sec);
+
+  // 모달 인스턴스
+  const bsModal = new bootstrap.Modal(modalEl, { backdrop: 'static', keyboard: false });
+  bsModal.show();
+
+  // 카운트다운 타이머
+  const timer = setInterval(() => {
+    sec -= 1;
+    redirSpan.textContent = String(sec);
+    if (sec <= 0) {
+      clearInterval(timer);
+      window.location.href = redirectUrl;
+    }
+  }, 1000);
+
+  // “바로 이동” 클릭 시 즉시 이동 + 타이머 정리
+  const goNowHandler = () => {
+    clearInterval(timer);
+    window.location.href = redirectUrl;
+  };
+  goNowBtn.addEventListener('click', goNowHandler, { once: true });
+
+  // 모달이 닫히면(머무르기/우측상단 X) 타이머 정리
+  const hiddenHandler = () => {
+    clearInterval(timer);
+    modalEl.removeEventListener('hidden.bs.modal', hiddenHandler);
+  };
+  modalEl.addEventListener('hidden.bs.modal', hiddenHandler, { once: true });
+}
+
+// 예시: 제출 성공 후 호출
+// showSuccessModal("https://cnt-mh.github.io/REDEV/SITE2/SD/300/index.html", 5);
+</script>
+  </section>
+
+<script>
+  /* ================= 의견 폼 제출 ================= */
+        const WEBAPP_URL = "https://script.google.com/macros/s/AKfycbzEeT9pFxoAYVuDjy2pMNv_dzblsNQPbw0zxDuOJDrYb3KO4erpsPkahtegS71d3rfDqg/exec";
+        const REDIRECT_URL = "https://cnt-mh.github.io/REDEV/SITE2/YD/3/index.html"; // TODO: 성공 후 이동할 URL로 변경
+        const form = document.getElementById('contactForm');
+        const statusEl = document.getElementById('formStatus');
+        const submitBtn = document.getElementById('submitBtn');
+        const spinner = submitBtn.querySelector('.spinner-border');
+        const btnLabel = submitBtn.querySelector('.btn-label');
+
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+
+  // 허니팟
+  if (document.getElementById('hp').value) {
+    statusEl.textContent = "스팸 의심 제출로 차단되었습니다.";
+    return;
+  }
+
+  const name = document.getElementById('name').value.trim();
+  const dongho = document.getElementById('dongho').value.trim();
+  const phoneEl = document.getElementById('phone');
+  const phone = phoneEl.value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  // 프런트 유효성
+
+      if (!name || !dongho || !message) {
+        statusEl.textContent = "성명/소유지번/메시지를 입력하세요.";
+        return;
+      }
+
+ /*if (!isValidKoreanMobile(콜)) {
+        statusEl.textContent = "연락처 형식이 올바르지 않습니다. 예) 01012345678 또는 010-1234-5678";
+        phoneEl.focus();
+        return;
+      }*/
+
+  // 제출 잠금 + 스피너
+  submitBtn.disabled = true;
+  spinner.classList.remove('d-none');
+  btnLabel.textContent = "전송 중…";
+  statusEl.textContent = "";
+
+  const payload = new URLSearchParams({ name, dongho, phone, message });
+
+  try {
+    await fetch(WEBAPP_URL, {
+      method: 'POST',
+      headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+      body: payload
+    });
+    statusEl.textContent = "접수되었습니다. 확인 후 연락드리겠습니다.";
+    form.reset();
+  } catch (err) {
+    console.error(err);
+    statusEl.textContent = "전송 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.";
+  } finally {
+    setTimeout(() => {
+      submitBtn.disabled = false;
+      spinner.classList.add('d-none');
+      btnLabel.textContent = "의견보내기";
+    }, 1200);
+  }
+});
+</script>
+
+<!--###########################################################################################################-->        
+<!-- 고정페이지 시작-->
+
+        <!--######################################################-->
+        <!-- 설문 시작 --> 
+                <!-- <a href="https://forms.gle/YUc4cphHAkJmjFAa6"
+                        class="btn-fancy btn-fancy-fixed"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        설문 참여하기
+                </a> --> 
+        <!-- 설문 섹션 끝-->
+        <!--######################################################-->
+
+        <!--######################################################-->
+        <!-- 전화상담바로가기 시작 --> 
+                <a href="tel:02-967-5747"  class="btn-fancy1 btn-fancy-fixed1"     rel="noopener noreferrer"   style="
+    padding-right: 10px;   padding-left: 10px; ">전화상담바로가기</a>
+        <!-- 전화상담바로가기 끝 --> 
+
+
+<!--######################################################-->
+<!-- 그냥 공간 --> 
+    <div class="container">
+        <div class="row">
+            <div class="col" style="color: GRAY; padding: 0 0 12px 12px; font-size: calc(10px + 0.2vw);">    
+            </div>
+        </div>
+    </div>
+<!-- 그냥 공간 --> 
+<!--######################################################-->
+
+
+<!--######################################################-->
+<!-- 푸터 시작 --> 
+<style>
+        .footer-links {
+                margin-bottom: 8px;
+        }
+
+        .footer-links a {
+                color: #555;
+                text-decoration: none;
+                margin: 0 4px;
+                font-weight: 400;
+        }
+
+        .footer-links span {
+                color: #bbb;
+                margin: 0 4px;
+        }
+
+        .footer-links.mid-links a {
+                color: #888;
+                font-weight: 500;
+        }
+
+        .footer-copy {
+                margin-top: 8px;
+                color: #aaa;
+        }
+</style>
+
+<footer class="container-fluid mt-5 ">
+        <div class="container text-center text-md-center py-4" style="color: #666; font-size: 0.9rem;">
+
+    <!-- 1행: 문의처 -->
+                <div class="mb-1 ">
+                        <strong>문의처</strong>
+                        <a href="https://naver.me/GA8IizZW" style="color: #666; text-decoration: none;">
+                        |&nbsp;용두3구역 신속통합기획 재개발 추진준비위원회</a>
+                </div>
+
+        <!-- 2행: 연락처 -->
+                <div class="mb-1">
+                        <strong>TEL</strong>  
+                        <a href="tel:02-967-5747" style="color: #666; text-decoration: none;">
+                        |&nbsp;02-967-5747</a>
+                                <!-- <br class="d-md-none">
+                          <strong>&nbsp;SMS</strong>
+                        <a href="sms:01076586114" style="color: #666; text-decoration: none;">
+                        |&nbsp;010-7658-6114</a>-->
+                </div>
+        <div class="mb-1">        </div>
+    <!-- 3행: 제작 -->
+                <div>
+                  <strong>제작</strong>&nbsp;|&nbsp;㈜머핀홀딩스
+                </div>
+
+        <!-- 4행: 저작권 -->
+                <div class="mt-2 text-muted" style="font-size: 0.8rem;">
+                © 2025  ㈜머핀홀딩스 All rights reserved.
+                </div>
+
+        </div>
+
+
+
+
+        <div class="container">
+                <div style="color:#e5e5e5; text-align:right; font-size: calc(10px + 0.2vw);">Created by glass</div>
+        </div>
+</footer>
+
+<!-- 푸터 끝 --> 
+<!--######################################################-->
+
+<!-- ✅ 팝업이 삽입될 컨테이너 -->
+<div id="popup-container"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  /** ✅ 노출 기간 설정 **/
+  const startDate = new Date("2025-11-06T00:00:00");
+  const endDate   = new Date("2025-12-10T23:59:59");
+  const today     = new Date();
+  if (today < startDate || today > endDate) return;
+
+  /** ✅ popup.html 불러오기 (캐시 방지) **/
+  fetch(`https://cnt-mh.github.io/REDEV/SITE2/YD/3/popup.html?ver=${Date.now()}`)
+    .then(res => res.text())
+    .then(html => {
+      const container = document.getElementById("popup-container");
+      container.innerHTML = html;
+
+      /** ✅ 팝업 표시 **/
+      const wrap = document.getElementById("popup-wrap");
+      const closeBtn = document.getElementById("popup-confirm");
+      if (wrap) wrap.style.display = "flex";
+      if (closeBtn) closeBtn.addEventListener("click", () => wrap.style.display = "none");
+
+      /** ✅ Shorts 자동 생성 **/
+      const shortsList = [
+        { id: "kltBOSFkEdY" },
+        { id: "zt0u0L7eEPw" },
+        // 필요 시 추가
+        // { id: "Ll8uSvrIuPI" },
+        // { id: "IwOYPbqG74g" },
+      ];
+
+      const containerEl = document.getElementById("shortsContainer");
+      if (containerEl) {
+        shortsList.forEach(v => {
+          const slide = document.createElement("div");
+          slide.className = "swiper-slide";
+          slide.innerHTML = `
+            <a href="https://youtube.com/shorts/${v.id}" target="_blank" class="thumb-slide" aria-label="Shorts 바로가기">
+              <img src="https://img.youtube.com/vi/${v.id}/hqdefault.jpg" alt="Shorts 썸네일">
+              <span class="yt-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/YouTube_full-color_icon_%282024%29.svg/240px-YouTube_full-color_icon_%282024%29.svg.png" alt="YouTube 아이콘">
+              </span>
+            </a>`;
+          containerEl.appendChild(slide);
+        });
+      }
+
+      /** ✅ Swiper 초기화 **/
+      new Swiper('.shorts-swiper', {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 10,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+      });
+    })
+    .catch(err => console.error("팝업 로드 실패:", err));
+});
+</script>
+
+</body>
+
+</html>
