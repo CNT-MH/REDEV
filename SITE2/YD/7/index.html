@@ -356,7 +356,7 @@
                 width: 32px;
                 height: 32px;
                 margin-right: 12px;
-                background-color: #9f00ff;
+                background-color: #9f00ff8a;
                 border-radius: 50%;
                 display: flex;
                 justify-content: center;
@@ -379,9 +379,21 @@
 
         /* 새로운게시물표시*/
         .badge-new {
-                background-color: #ff2e63;
+                background-color: #ff2e5cd6;
                 color: #fff;
                 font-size: 0.45rem;
+                font-weight: bold;
+                padding: 1.5px 3px;
+                border-radius: 3px;
+                margin-left: 8px;
+                vertical-align: middle;
+                animation: glow 1.5s infinite ease-in-out;
+                box-shadow: 0 0 5px rgba(255, 46, 99, 0.5);
+        }
+		  .badge-new1 {
+                background-color: #ff2e63;
+                color: #fff;
+                font-size: 0.6rem;
                 font-weight: bold;
                 padding: 1.5px 3px;
                 border-radius: 3px;
@@ -397,7 +409,6 @@
                 100% { box-shadow: 0 0 5px rgba(255, 46, 99, 0.5); }
         }
 </style>
-
 
 <!--######################################################-->
 <!-- 구분선시작-->
@@ -426,6 +437,16 @@
                         <span class="badge-new">NEW</span>
                 </a>
         </div>-->
+
+  <!--게시글-->
+        <div class="board-card" style="margin-top: 1.25rem;">
+                <a href="https://m.housingtimes.co.kr/news/articleView.html?idxno=1936" target="_blank" class="board-link">
+                        <div class="board-icon">10</div>
+                        지분쪼개기로 지연되는 용두7구역
+                <span class="badge-new">집중취재</span>
+                </a>
+		</div>
+	
 
   <!--게시글-->
         <div class="board-card" style="margin-top: 1.25rem;">
@@ -557,7 +578,6 @@
                src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/YouTube_full-color_icon_%282024%29.svg/240px-YouTube_full-color_icon_%282024%29.svg.png" 
                alt="유튜브 아이콘" />
           <div class="icon-card__label">2026 설날 인사
-                <span class="badge-new">NEW</span>
                   </div>
 
         </a>
