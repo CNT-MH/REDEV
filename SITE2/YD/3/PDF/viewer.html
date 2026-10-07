@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover"
+>
+
+<title>용두3구역 자료 열람</title>
+
+<style>
+
+:root {
+    --navy: #142b47;
+    --navy-dark: #0b1c30;
+    --gold: #b89a62;
+    --bg: #e8eaed;
+    --white: #ffffff;
+    --text: #17202b;
+    --sub: #78818b;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family:
+        Pretendard,
+        "Noto Sans KR",
+        "Apple SD Gothic Neo",
+        Arial,
+        sans-serif;
+
+    background: var(--bg);
+    color: var(--text);
+}
+
+
+/* =========================================
+   상단 헤더
+========================================= */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy-dark),
+            var(--navy)
+        );
+
+    color: white;
+
+    box-shadow:
+        0 2px 12px rgba(0,0,0,.18);
+}
+
+.header-inner {
+    max-width: 900px;
+    margin: auto;
+
+    min-height: 61px;
+
+    display: flex;
+    align-items: center;
+
+    padding:
+        calc(9px + env(safe-area-inset-top))
+        13px
+        9px;
+}
+
+
+/* 뒤로가기 */
+
+.back-btn {
+    width: 39px;
+    height: 39px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 10px;
+
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 10px;
+
+    background: rgba(255,255,255,.08);
+
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* 제목 */
+
+.header-title {
+    flex: 1;
+    min-width: 0;
+}
+
+.header-label {
+    display: block;
+
+    margin-bottom: 2px;
+
+    color: #d8c49c;
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.header-title strong {
+    display: block;
+
+    overflow: hidden;
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+/* 페이지 */
+
+.page-info {
+    flex-shrink: 0;
+
+    margin-left: 8px;
+
+    color: rgba(255,255,255,.75);
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   PDF 영역
+========================================= */
+
+#viewerContainer {
+    width: 100%;
+    max-width: 900px;
+
+    margin: auto;
+
+    padding:
+        12px
+        8px
+        calc(30px + env(safe-area-inset-bottom));
+}
+
+
+/* PDF 페이지 */
+
+.pdf-page {
+    position: relative;
+
+    width: 100%;
+
+    margin: 0 auto 12px;
+
+    background: white;
+
+    box-shadow:
+        0 2px 9px rgba(0,0,0,.14);
+
+    overflow: hidden;
+}
+
+.pdf-page canvas {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
+
+
+/* =========================================
+   로딩
+========================================= */
+
+.loading {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 500;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--bg);
+}
+
+.loading-box {
+    text-align: center;
+}
+
+.spinner {
+    width: 36px;
+    height: 36px;
+
+    margin: 0 auto 15px;
+
+    border: 3px solid #d3d7dc;
+    border-top-color: var(--navy);
+
+    border-radius: 50%;
+
+    animation: spin .8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-title {
+    margin-bottom: 5px;
+
+    color: var(--navy);
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.loading-text {
+    color: #89919a;
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   오류
+========================================= */
+
+.error {
+    display: none;
+
+    max-width: 500px;
+
+    margin: 70px auto;
+
+    padding: 25px 20px;
+
+    text-align: center;
+}
+
+.error-icon {
+    margin-bottom: 13px;
+
+    font-size: 30px;
+}
+
+.error strong {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--navy);
+
+    font-size: 17px;
+}
+
+.error p {
+    margin: 0;
+
+    color: var(--sub);
+
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   하단
+========================================= */
+
+.footer {
+    padding: 5px 10px 35px;
+
+    text-align: center;
+
+    color: #8b9299;
+
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   모바일
+========================================= */
+
+@media (max-width: 600px) {
+
+    #viewerContainer {
+        padding-left: 4px;
+        padding-right: 4px;
+        padding-top: 7px;
+    }
+
+    .pdf-page {
+        margin-bottom: 7px;
+
+        box-shadow:
+            0 1px 5px rgba(0,0,0,.15);
+    }
+
+    .header-inner {
+        min-height: 57px;
+    }
+
+    .back-btn {
+        width: 36px;
+        height: 36px;
+
+        margin-right: 9px;
+
+        font-size: 20px;
+    }
+
+    .header-title strong {
+        font-size: 13px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ========================================
+     상단
+======================================== -->
+
+<header class="header">
+
+    <div class="header-inner">
+
+        <button
+            class="back-btn"
+            onclick="goBack()"
+            aria-label="뒤로가기"
+        >
+            ‹
+        </button>
+
+
+        <div class="header-title">
+
+            <span class="header-label">
+                YONGDU 3
+            </span>
+
+            <strong id="documentTitle">
+                자료 불러오는 중
+            </strong>
+
+        </div>
+
+
+        <div
+            class="page-info"
+            id="pageInfo"
+        >
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- ========================================
+     PDF
+======================================== -->
+
+<main id="viewerContainer"></main>
+
+
+
+<!-- ========================================
+     오류
+======================================== -->
+
+<div
+    id="errorBox"
+    class="error"
+>
+
+    <div class="error-icon">
+        !
+    </div>
+
+    <strong>
+        자료를 불러올 수 없습니다.
+    </strong>
+
+    <p>
+        PDF 파일이 존재하는지 확인해 주세요.<br>
+        잠시 후 다시 시도해 주세요.
+    </p>
+
+</div>
+
+
+
+<!-- ========================================
+     로딩
+======================================== -->
+
+<div
+    id="loading"
+    class="loading"
+>
+
+    <div class="loading-box">
+
+        <div class="spinner"></div>
+
+        <div class="loading-title">
+            자료를 불러오고 있습니다.
+        </div>
+
+        <div class="loading-text">
+            잠시만 기다려 주세요.
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<footer
+    id="footer"
+    class="footer"
+    style="display:none;"
+>
+    용두3구역 주택정비형 재개발사업<br>
+    조합설립추진위원회
+</footer>
+
+
+
+<!-- ========================================
+     PDF.js
+======================================== -->
+
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs"
+    type="module"
+></script>
+
+
+<script type="module">
+
+import * as pdfjsLib from
+"https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs";
+
+
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+"https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.worker.min.mjs";
+
+
+/* ========================================
+   URL에서 PDF 파일명 가져오기
+======================================== */
+
+const params =
+    new URLSearchParams(window.location.search);
+
+const file =
+    params.get("file");
+
+
+/* 파일이 지정되지 않은 경우 */
+
+if (!file) {
+
+    showError();
+
+    throw new Error(
+        "PDF 파일이 지정되지 않았습니다."
+    );
+
+}
+
+
+/* ========================================
+   보안 처리
+   같은 폴더의 PDF만 허용
+======================================== */
+
+const cleanFile =
+    file.split("/").pop();
+
+
+if (
+    !cleanFile
+        .toLowerCase()
+        .endsWith(".pdf")
+) {
+
+    showError();
+
+    throw new Error(
+        "PDF 파일만 열 수 있습니다."
+    );
+
+}
+
+
+/* ========================================
+   제목 설정
+======================================== */
+
+let displayTitle =
+    cleanFile
+        .replace(/\.pdf$/i, "")
+        .replaceAll("_", " ")
+        .replaceAll("-", " ");
+
+
+document
+    .getElementById("documentTitle")
+    .textContent = displayTitle;
+
+
+document.title =
+    displayTitle + " | 용두3구역";
+
+
+/* ========================================
+   PDF 주소
+======================================== */
+
+const pdfUrl =
+    "./" + encodeURIComponent(cleanFile);
+
+
+/* ========================================
+   PDF 로드
+======================================== */
+
+async function loadPDF() {
+
+    try {
+
+        const loadingTask =
+            pdfjsLib.getDocument(pdfUrl);
+
+
+        const pdf =
+            await loadingTask.promise;
+
+
+        const totalPages =
+            pdf.numPages;
+
+
+        document
+            .getElementById("pageInfo")
+            .textContent =
+            totalPages + " PAGE";
+
+
+        const container =
+            document.getElementById(
+                "viewerContainer"
+            );
+
+
+        /*
+         * 모바일에서 너무 낮은 해상도로
+         * 렌더링되지 않도록 DPR 반영
+         */
+
+        const pixelRatio =
+            Math.min(
+                window.devicePixelRatio || 1,
+                2
+            );
+
+
+        /* =================================
+           모든 페이지 순차 렌더링
+        ================================= */
+
+        for (
+            let pageNumber = 1;
+            pageNumber <= totalPages;
+            pageNumber++
+        ) {
+
+            const page =
+                await pdf.getPage(
+                    pageNumber
+                );
+
+
+            /*
+             * 원본 PDF viewport
+             */
+
+            const originalViewport =
+                page.getViewport({
+                    scale: 1
+                });
+
+
+            /*
+             * 실제 화면 폭 계산
+             */
+
+            const availableWidth =
+                Math.min(
+                    window.innerWidth - 8,
+                    892
+                );
+
+
+            /*
+             * 화면 폭에 맞는 scale
+             */
+
+            const cssScale =
+                availableWidth /
+                originalViewport.width;
+
+
+            /*
+             * 고해상도 렌더링
+             */
+
+            const renderScale =
+                cssScale * pixelRatio;
+
+
+            const viewport =
+                page.getViewport({
+                    scale: renderScale
+                });
+
+
+            /* 페이지 컨테이너 */
+
+            const pageWrapper =
+                document.createElement(
+                    "div"
+                );
+
+
+            pageWrapper.className =
+                "pdf-page";
+
+
+            /* Canvas */
+
+            const canvas =
+                document.createElement(
+                    "canvas"
+                );
+
+
+            const context =
+                canvas.getContext(
+                    "2d",
+                    {
+                        alpha: false
+                    }
+                );
+
+
+            canvas.width =
+                viewport.width;
+
+
+            canvas.height =
+                viewport.height;
+
+
+            /*
+             * CSS상 실제 화면 크기
+             */
+
+            canvas.style.width =
+                (
+                    viewport.width /
+                    pixelRatio
+                ) + "px";
+
+
+            canvas.style.height =
+                (
+                    viewport.height /
+                    pixelRatio
+                ) + "px";
+
+
+            pageWrapper
+                .appendChild(canvas);
+
+
+            container
+                .appendChild(pageWrapper);
+
+
+            /*
+             * 페이지 렌더링
+             */
+
+            await page.render({
+
+                canvasContext:
+                    context,
+
+                viewport:
+                    viewport
+
+            }).promise;
+
+        }
+
+
+        /* =================================
+           완료
+        ================================= */
+
+        document
+            .getElementById("loading")
+            .style.display =
+            "none";
+
+
+        document
+            .getElementById("footer")
+            .style.display =
+            "block";
+
+
+    }
+
+    catch(error) {
+
+        console.error(error);
+
+        showError();
+
+    }
+
+}
+
+
+/* ========================================
+   오류
+======================================== */
+
+function showError() {
+
+    document
+        .getElementById("loading")
+        .style.display =
+        "none";
+
+
+    document
+        .getElementById("viewerContainer")
+        .style.display =
+        "none";
+
+
+    document
+        .getElementById("errorBox")
+        .style.display =
+        "block";
+
+}
+
+
+/* ========================================
+   실행
+======================================== */
+
+loadPDF();
+
+</script>
+
+
+
+<script>
+
+/* ========================================
+   뒤로가기
+======================================== */
+
+function goBack() {
+
+    if (window.history.length > 1) {
+
+        window.history.back();
+
+    } else {
+
+        window.location.href =
+            "./index.html";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+</html>
