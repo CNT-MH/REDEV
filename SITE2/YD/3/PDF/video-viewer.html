@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
+
+<title>용두3구역 홍보영상</title>
+
+<style>
+
+:root {
+    --navy: #142b47;
+    --navy-dark: #0b1c30;
+    --navy-light: #24496f;
+    --gold: #b89a62;
+    --gold-light: #d8c49c;
+    --bg: #f2f4f6;
+    --white: #ffffff;
+    --text: #17202b;
+    --sub: #747e89;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    background: var(--bg);
+
+    font-family:
+        Pretendard,
+        "Noto Sans KR",
+        "Apple SD Gothic Neo",
+        Arial,
+        sans-serif;
+
+    color: var(--text);
+}
+
+
+/* ==============================
+   상단
+============================== */
+
+.header {
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--navy-dark),
+            var(--navy),
+            var(--navy-light)
+        );
+
+    color: white;
+
+    padding:
+        calc(17px + env(safe-area-inset-top))
+        15px
+        18px;
+
+    box-shadow:
+        0 3px 15px rgba(0,0,0,.15);
+}
+
+.header-inner {
+    max-width: 850px;
+    margin: auto;
+}
+
+
+/* 뒤로가기 */
+
+.back {
+
+    display: inline-flex;
+    align-items: center;
+
+    margin-bottom: 17px;
+
+    color: rgba(255,255,255,.75);
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+.back span {
+    margin-right: 6px;
+
+    font-size: 19px;
+}
+
+
+/* 타이틀 */
+
+.header-label {
+
+    margin-bottom: 6px;
+
+    color: var(--gold-light);
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.header h1 {
+
+    margin: 0;
+
+    font-size: 21px;
+    line-height: 1.4;
+
+    letter-spacing: -.7px;
+}
+
+
+/* ==============================
+   메인
+============================== */
+
+.container {
+
+    width: 100%;
+    max-width: 850px;
+
+    margin: auto;
+
+    padding: 18px 13px 40px;
+}
+
+
+/* ==============================
+   영상 카드
+============================== */
+
+.video-card {
+
+    overflow: hidden;
+
+    background: white;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 30px rgba(15,32,51,.10);
+}
+
+
+/* ==============================
+   영상 프레임
+============================== */
+
+.video-frame {
+
+    position: relative;
+
+    width: 100%;
+
+    padding-top: 56.25%;
+
+    background: #000;
+}
+
+.video-frame iframe {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+}
+
+
+/* ==============================
+   영상 설명
+============================== */
+
+.video-info {
+
+    padding: 18px 17px 19px;
+}
+
+.video-category {
+
+    margin-bottom: 6px;
+
+    color: var(--gold);
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+}
+
+.video-title {
+
+    margin: 0;
+
+    color: var(--navy);
+
+    font-size: 17px;
+    line-height: 1.4;
+
+    letter-spacing: -.5px;
+}
+
+.video-description {
+
+    margin: 8px 0 0;
+
+    color: var(--sub);
+
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+
+/* ==============================
+   안내
+============================== */
+
+.notice {
+
+    margin-top: 22px;
+
+    text-align: center;
+
+    color: #89919a;
+
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+
+/* ==============================
+   하단
+============================== */
+
+.footer {
+
+    margin-top: 28px;
+
+    padding-bottom:
+        env(safe-area-inset-bottom);
+
+    text-align: center;
+
+    color: #9aa1a8;
+
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+.footer-line {
+
+    width: 27px;
+    height: 1px;
+
+    margin: 0 auto 11px;
+
+    background: var(--gold);
+}
+
+
+/* ==============================
+   PC
+============================== */
+
+@media (min-width: 700px) {
+
+    .container {
+        padding-top: 27px;
+    }
+
+    .header {
+        padding-top: 28px;
+        padding-bottom: 25px;
+    }
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==============================
+     상단
+============================== -->
+
+<header class="header">
+
+    <div class="header-inner">
+
+        <a
+            class="back"
+            href="javascript:history.back();"
+        >
+            <span>‹</span>
+            총회 상정업체(설계자) 홍보자료
+        </a>
+
+
+        <div class="header-label">
+            용두3구역 주택정비형 재개발사업
+        </div>
+
+
+        <h1 id="headerTitle">
+            홍보영상
+        </h1>
+
+    </div>
+
+</header>
+
+
+
+<!-- ==============================
+     메인
+============================== -->
+
+<main class="container">
+
+
+    <section class="video-card">
+
+
+        <!-- 영상 -->
+        <div class="video-frame">
+
+            <iframe
+                id="youtubePlayer"
+                src=""
+                title="홍보영상"
+                allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share
+                "
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+            >
+            </iframe>
+
+        </div>
+
+
+        <!-- 설명 -->
+        <div class="video-info">
+
+
+            <h2
+                class="video-title"
+                id="videoTitle"
+            >
+                홍보영상
+            </h2>
+
+
+            <p class="video-description">
+                용두3구역 총회 상정업체(설계자)에서 제출한
+                홍보영상입니다.
+            </p>
+
+        </div>
+
+
+    </section>
+
+
+
+    <div class="notice">
+
+        본 영상은 용두3구역 총회 상정업체(설계자)에서<br>
+        제출한 홍보자료의 열람을 위해 제공됩니다.
+
+    </div>
+
+
+
+    <footer class="footer">
+
+        <div class="footer-line"></div>
+
+        용두3구역 주택정비형 재개발사업<br>
+        조합설립추진위원회
+
+    </footer>
+
+
+</main>
+
+
+
+<script>
+
+/* URL 파라미터 */
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+const videoId =
+    params.get("video");
+
+
+const title =
+    params.get("title")
+    || "홍보영상";
+
+
+/* 제목 */
+
+document
+    .getElementById("headerTitle")
+    .textContent =
+    title;
+
+
+document
+    .getElementById("videoTitle")
+    .textContent =
+    title;
+
+
+document.title =
+    title + " | 용두3구역";
+
+
+/* YouTube 영상 */
+
+if (videoId) {
+
+    document
+        .getElementById("youtubePlayer")
+        .src =
+        "https://www.youtube-nocookie.com/embed/"
+        + encodeURIComponent(videoId)
+        + "?rel=0&playsinline=1";
+
+}
+
+</script>
+
+
+</body>
+</html>
