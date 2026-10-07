@@ -1,124 +1,631 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-  <title>용두3구역 자료열람</title>
+<title>용두3구역 참여업체 홍보자료</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
+<style>
+/* ===============================
+   기본 설정
+================================ */
+:root {
+    --navy: #142b47;
+    --navy-dark: #0b1c30;
+    --navy-light: #24496f;
+    --gold: #b89a62;
+    --gold-light: #d8c49c;
+
+    --bg: #f3f4f6;
+    --white: #ffffff;
+
+    --text: #17202b;
+    --sub: #6c7580;
+    --line: #e6e8eb;
+
+    --shadow:
+        0 8px 28px rgba(15, 32, 51, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+
+    font-family:
+        Pretendard,
+        "Noto Sans KR",
+        "Apple SD Gothic Neo",
+        Arial,
+        sans-serif;
+}
+
+
+/* ===============================
+   HERO
+================================ */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--navy-dark) 0%,
+            var(--navy) 55%,
+            var(--navy-light) 100%
+        );
+
+    padding:
+        calc(43px + env(safe-area-inset-top))
+        22px
+        48px;
+
+    color: white;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+
+    width: 210px;
+    height: 210px;
+
+    right: -90px;
+    top: -80px;
+
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 50%;
+}
+
+.hero-inner {
+    max-width: 700px;
+    margin: auto;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 14px;
+
+    color: var(--gold-light);
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.7px;
+}
+
+.hero-label::before {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
+}
+
+.hero h1 {
+    margin: 0;
+
+    font-size: 27px;
+    line-height: 1.35;
+    letter-spacing: -1.2px;
+    font-weight: 700;
+}
+
+.hero h1 span {
+    color: var(--gold-light);
+}
+
+.hero p {
+    margin: 13px 0 0;
+
+    color: rgba(255,255,255,.68);
+
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* ===============================
+   CONTENT
+================================ */
+
+.container {
+    max-width: 700px;
+    margin: -18px auto 0;
+    padding: 0 15px 45px;
+
+    position: relative;
+    z-index: 5;
+}
+
+
+/* ===============================
+   업체 카드
+================================ */
+
+.company-card {
+    background: var(--white);
+
+    border-radius: 17px;
+
+    padding: 22px 18px 18px;
+
+    margin-bottom: 15px;
+
+    box-shadow: var(--shadow);
+
+    border: 1px solid rgba(0,0,0,.025);
+}
+
+.company-top {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 19px;
+}
+
+.company-number {
+    width: 39px;
+    height: 39px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 12px;
+
+    background: var(--navy);
+
+    border-radius: 11px;
+
+    color: var(--gold-light);
+
+    font-family: Georgia, serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.company-info {
+    min-width: 0;
+}
+
+.company-type {
+    margin-bottom: 4px;
+
+    color: var(--gold);
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.company-name {
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 18px;
+    line-height: 1.3;
+    letter-spacing: -.5px;
+}
+
+
+/* ===============================
+   구분선
+================================ */
+
+.divider {
+    width: 100%;
+    height: 1px;
+
+    margin-bottom: 14px;
+
+    background: var(--line);
+}
+
+
+/* ===============================
+   자료 버튼
+================================ */
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.action {
+    width: 100%;
+    min-height: 57px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 11px 13px;
+
+    border: 1px solid var(--line);
+    border-radius: 11px;
+
+    background: #fafbfc;
+
+    text-decoration: none;
+    color: var(--text);
+
+    transition: .15s ease;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+.action:active {
+    transform: scale(.985);
+    background: #f2f4f6;
+}
+
+.action-icon {
+    width: 37px;
+    height: 37px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 12px;
+
+    border-radius: 9px;
+
+    background: #edf1f5;
+
+    font-size: 17px;
+}
+
+.action.video .action-icon {
+    background: #fff0f0;
+}
+
+.action-text {
+    flex: 1;
+}
+
+.action-label {
+    display: block;
+
+    margin-bottom: 2px;
+
+    color: #9299a1;
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .8px;
+}
+
+.action-title {
+    display: block;
+
+    color: #29323c;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.arrow {
+    margin-left: 10px;
+
+    color: #9ba2aa;
+
+    font-size: 19px;
+    font-weight: 300;
+}
+
+
+/* ===============================
+   안내
+================================ */
+
+.notice {
+    margin-top: 23px;
+
+    padding: 0 6px;
+
+    text-align: center;
+
+    color: #8b9299;
+
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+
+/* ===============================
+   FOOTER
+================================ */
+
+.footer {
+    margin-top: 29px;
+
+    text-align: center;
+
+    color: #a0a6ac;
+
+    font-size: 10px;
+}
+
+.footer-line {
+    width: 27px;
+    height: 1px;
+
+    margin: 0 auto 11px;
+
+    background: var(--gold);
+}
+
+
+/* ===============================
+   PC
+================================ */
+
+@media (min-width: 700px) {
+
+    .hero {
+        padding-top: 55px;
+        padding-bottom: 60px;
     }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      font-family: Arial, "Noto Sans KR", sans-serif;
-      background: #f5f5f5;
+    .hero h1 {
+        font-size: 32px;
     }
 
-    /* 상단 */
-    .header {
-      height: 110px;
-      background: #ffffff;
-      border-bottom: 1px solid #ddd;
-      padding: 15px;
-      text-align: center;
+    .container {
+        margin-top: -22px;
     }
 
-    .header h2 {
-      margin: 0 0 12px;
-      font-size: 20px;
+    .company-card {
+        padding: 25px;
     }
+}
 
-    /* PDF 선택 버튼 */
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    button {
-      padding: 10px 20px;
-      border: 0;
-      border-radius: 6px;
-      background: #333;
-      color: white;
-      font-size: 15px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #555;
-    }
-
-    /* PDF 영역 */
-    .viewer {
-      width: 100%;
-      height: calc(100vh - 110px);
-    }
-
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-      background: white;
-    }
-
-    /* 모바일 */
-    @media (max-width: 600px) {
-      .header {
-        height: 120px;
-      }
-
-      .header h2 {
-        font-size: 18px;
-      }
-
-      button {
-        flex: 1;
-        padding: 10px 5px;
-        font-size: 14px;
-      }
-
-      .viewer {
-        height: calc(100vh - 120px);
-      }
-    }
-  </style>
+</style>
 </head>
+
 
 <body>
 
-  <div class="header">
-    <h2>용두3구역 설계자 자료열람</h2>
 
-    <div class="buttons">
-      <button onclick="openPDF('01.pdf')">
-        자료 1
-      </button>
+<!-- ==================================
+     상단
+=================================== -->
 
-      <button onclick="openPDF('02.pdf')">
-        자료 2
-      </button>
+<header class="hero">
+
+    <div class="hero-inner">
+
+        <div class="hero-label">
+            YONGDU 3 REDEVELOPMENT
+        </div>
+
+        <h1>
+            용두3구역<br>
+            <span>참여업체 홍보자료</span>
+        </h1>
+
+        <p>
+            용두3구역 주택정비형 재개발사업<br>
+            참여업체의 홍보 및 소개자료를 확인하실 수 있습니다.
+        </p>
+
     </div>
-  </div>
 
-  <div class="viewer">
-    <iframe
-      id="pdfViewer"
-      src="01.pdf">
-    </iframe>
-  </div>
+</header>
 
-  <script>
-    function openPDF(file) {
-      document.getElementById("pdfViewer").src = file;
-    }
-  </script>
+
+
+<main class="container">
+
+
+    <!-- ==================================
+         01 에이에이건축사사무소
+    =================================== -->
+
+    <section class="company-card">
+
+        <div class="company-top">
+
+            <div class="company-number">
+                01
+            </div>
+
+            <div class="company-info">
+
+                <div class="company-type">
+                    ARCHITECTURE
+                </div>
+
+                <h2 class="company-name">
+                    에이에이건축사사무소
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="divider"></div>
+
+
+        <div class="actions">
+
+
+            <!-- 홍보영상 -->
+            <a
+                class="action video"
+                href="유튜브주소"
+                target="_blank"
+                rel="noopener"
+            >
+
+                <div class="action-icon">
+                    ▶
+                </div>
+
+                <div class="action-text">
+
+                    <span class="action-label">
+                        PROMOTION VIDEO
+                    </span>
+
+                    <span class="action-title">
+                        홍보영상 보기
+                    </span>
+
+                </div>
+
+                <div class="arrow">
+                    ›
+                </div>
+
+            </a>
+
+
+
+            <!-- 홍보자료 PDF -->
+            <a
+                class="action"
+                href="aa.pdf"
+                target="_blank"
+            >
+
+                <div class="action-icon">
+                    PDF
+                </div>
+
+                <div class="action-text">
+
+                    <span class="action-label">
+                        PROMOTION MATERIAL
+                    </span>
+
+                    <span class="action-title">
+                        홍보자료 보기
+                    </span>
+
+                </div>
+
+                <div class="arrow">
+                    ›
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================
+         02 다인씨엠
+    =================================== -->
+
+    <section class="company-card">
+
+        <div class="company-top">
+
+            <div class="company-number">
+                02
+            </div>
+
+            <div class="company-info">
+
+                <div class="company-type">
+                    CONSTRUCTION MANAGEMENT
+                </div>
+
+                <h2 class="company-name">
+                    다인씨엠
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="divider"></div>
+
+
+        <div class="actions">
+
+
+            <!-- 회사소개서 -->
+            <a
+                class="action"
+                href="dain.pdf"
+                target="_blank"
+            >
+
+                <div class="action-icon">
+                    PDF
+                </div>
+
+                <div class="action-text">
+
+                    <span class="action-label">
+                        COMPANY PROFILE
+                    </span>
+
+                    <span class="action-title">
+                        회사소개서 보기
+                    </span>
+
+                </div>
+
+                <div class="arrow">
+                    ›
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- 안내 -->
+
+    <div class="notice">
+        본 페이지는 용두3구역 관련 참여업체가 제출한<br>
+        홍보·소개자료의 열람을 위한 페이지입니다.
+    </div>
+
+
+    <footer class="footer">
+
+        <div class="footer-line"></div>
+
+        용두3구역 주택정비형 재개발사업
+
+    </footer>
+
+
+</main>
+
 
 </body>
 </html>
